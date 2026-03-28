@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Stone Snap - Digital Field Guide</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary-container": "#614200",
+              "on-error-container": "#93000a",
+              "on-error": "#ffffff",
+              "surface": "#fcf9f3",
+              "outline-variant": "#c1c8c1",
+              "inverse-primary": "#a9cfb7",
+              "surface-container-lowest": "#ffffff",
+              "primary-container": "#2d4f3c",
+              "inverse-on-surface": "#f3f0ea",
+              "secondary-fixed": "#cbe7f5",
+              "error": "#ba1a1a",
+              "primary": "#163826",
+              "secondary": "#48626e",
+              "on-primary-fixed-variant": "#2c4e3b",
+              "on-tertiary-fixed": "#281900",
+              "on-secondary-container": "#4e6874",
+              "tertiary-fixed": "#ffdeac",
+              "on-primary": "#ffffff",
+              "on-secondary-fixed-variant": "#304a55",
+              "secondary-fixed-dim": "#afcbd8",
+              "surface-tint": "#436651",
+              "on-primary-fixed": "#002112",
+              "on-secondary-fixed": "#021f29",
+              "surface-container": "#f0eee8",
+              "on-primary-container": "#9ac0a7",
+              "outline": "#727973",
+              "surface-container-high": "#ebe8e2",
+              "on-tertiary": "#ffffff",
+              "on-tertiary-fixed-variant": "#604100",
+              "on-background": "#1c1c18",
+              "secondary-container": "#cbe7f5",
+              "surface-bright": "#fcf9f3",
+              "on-surface": "#1c1c18",
+              "inverse-surface": "#31312d",
+              "on-tertiary-container": "#f1a900",
+              "surface-variant": "#e5e2dc",
+              "background": "#fcf9f3",
+              "tertiary-fixed-dim": "#ffba38",
+              "surface-container-highest": "#e5e2dc",
+              "on-surface-variant": "#424843",
+              "error-container": "#ffdad6",
+              "surface-dim": "#dcdad4",
+              "primary-fixed": "#c5ecd2",
+              "surface-container-low": "#f6f3ed",
+              "on-secondary": "#ffffff",
+              "primary-fixed-dim": "#a9cfb7",
+              "tertiary": "#442d00"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Manrope"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .mineral-gradient {
+            background: linear-gradient(135deg, #163826 0%, #2d4f3c 100%);
+        }
+        .ghost-border {
+            outline: 1px solid rgba(193, 200, 193, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-tertiary-fixed selection:text-on-tertiary-fixed">
+<!-- Top Navigation Bar -->
+<nav class="bg-[#fcf9f3]/80 dark:bg-[#1c1c18]/80 backdrop-blur-md shadow-sm dark:shadow-none docked full-width top-0 z-50 sticky">
+<div class="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
+<div class="text-2xl font-['Space_Grotesk'] font-bold tracking-tight text-[#163826] dark:text-[#fcf9f3]">
+                Stone Snap
+            </div>
+<div class="hidden md:flex items-center gap-8 font-['Space_Grotesk'] font-bold tracking-tight">
+<a class="text-[#48626e] dark:text-[#e5e2dc] hover:text-[#163826] dark:hover:text-[#fcf9f3] transition-colors" href="#features">Features</a>
+<a class="text-[#48626e] dark:text-[#e5e2dc] hover:text-[#163826] dark:hover:text-[#fcf9f3] transition-colors" href="#gallery">Gallery</a>
+<a class="text-[#48626e] dark:text-[#e5e2dc] hover:text-[#163826] dark:hover:text-[#fcf9f3] transition-colors" href="#about">About</a>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-lg hover:opacity-90 transition-all duration-200 scale-95 active:scale-90 font-label uppercase text-xs tracking-widest">
+                    Download Now
+                </button>
+</div>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</nav>
+<main>
+<!-- Hero Section -->
+<section class="relative min-h-[921px] flex items-center pt-20 px-6 overflow-hidden">
+<div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<div class="lg:col-span-7 space-y-8 z-10">
+<span class="font-label text-xs uppercase tracking-[0.2em] text-secondary bg-surface-container-high px-3 py-1 rounded-full">Evolution of Identification</span>
+<h1 class="font-headline text-5xl md:text-7xl font-bold text-primary leading-[1.1] tracking-tight">
+                        Unearth the <span class="italic font-light">History</span> of Every Stone.
+                    </h1>
+<p class="text-lg md:text-xl text-secondary max-w-xl leading-relaxed">
+                        The definitive digital field guide for geologists and hobbyists. Identify minerals instantly with AI trained on millions of geological specimens.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-4 pt-4">
+<button class="mineral-gradient text-on-primary px-8 py-4 rounded-xl flex items-center justify-center gap-3 shadow-lg hover:brightness-105 transition-all">
+<img alt="Google Play" class="h-6" src="https://lh3.googleusercontent.com/aida-public/AB6AXuClAOX1k9KeSqdw6yUPVRmMKTmBBnKyU47S3cEGj_QhNTIxNl_mf3YJ1Cv5fs09ES0UqJ87_ZKvu-F3OLzTR3JoEHf9OxfeVedz-iSlW7Ek18QwgsCHgOoIMPms6be8i4APxKt0ZDjlCm63KSB0zxzzYqYqSvZoZTjC8vkmOJEKMBTR7XMkIJmdlkPDy7-HwIozaGV0r62R66zsM6DCXyuvhowKDnO5Auq6RzfhGZK-EJaVySV9gUu1njZEyUkRLTGpLYnEMrI8PQ"/>
+<span class="font-label font-bold text-sm">GET IT ON GOOGLE PLAY</span>
+</button>
+<button class="bg-surface-container-highest text-on-surface px-8 py-4 rounded-xl font-label font-bold text-sm hover:bg-surface-container-high transition-colors">
+                            EXPLORE FEATURES
+                        </button>
+</div>
+</div>
+<div class="lg:col-span-5 relative">
+<div class="aspect-[4/5] bg-surface-container-low rounded-[2rem] overflow-hidden rotate-3 ghost-border shadow-2xl">
+<img class="w-full h-full object-cover grayscale-[20%] hover:scale-105 transition-transform duration-700" data-alt="close-up of a high-resolution smartphone displaying a complex crystalline mineral structure being analyzed by a scanning UI interface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMqTHVX5fBXbHS9B69I74NlNPmHw0sAEOiM1ZwXkw7244T1oZ1D7VG0i_m--iyBtm4qnPBcEvVAGip15xpKsxTMyql5NQvFUsrWRVBlDPeyVGW2t_1XbLg5QSi3gp8Rtyu6lp4xIJFtpM7UaGCKzy24l-QOwylWZJt2RspTrIiAaUaLMRjcN_VV5s6UaZQsUY8Xnx5_c3QoVzRRoI04QFJWwm0n_qr5GdzIL13W4asQt9RXo8orW27hQfIAOAecJ91a03Ck-86Rw"/>
+</div>
+<div class="absolute -bottom-8 -left-8 bg-surface p-6 rounded-xl shadow-xl max-w-xs border border-outline-variant/10">
+<p class="font-label text-[10px] text-tertiary uppercase tracking-widest mb-2">Current Scan</p>
+<h4 class="font-headline text-lg font-bold text-primary mb-1">Amethyst Quartz</h4>
+<div class="flex items-center gap-2 text-secondary text-sm">
+<span class="material-symbols-outlined text-xs">location_on</span>
+<span>Rocky Mountains, CO</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- How It Works (The Strata Tracker) -->
+<section class="py-24 bg-surface-container-low" id="features">
+<div class="max-w-7xl mx-auto px-6">
+<div class="mb-16">
+<h2 class="font-headline text-3xl md:text-5xl font-bold text-primary mb-4 text-center">How It Works</h2>
+<div class="w-24 h-1 bg-tertiary-fixed-dim mx-auto"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
+<!-- Progress Line (Desktop) -->
+<div class="hidden md:block absolute top-12 left-0 w-full h-1 bg-outline-variant/20 z-0"></div>
+<div class="relative z-10 space-y-6 text-center group">
+<div class="w-24 h-24 mineral-gradient rounded-full mx-auto flex items-center justify-center text-on-primary shadow-lg group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl">photo_camera</span>
+</div>
+<h3 class="font-headline text-2xl font-bold text-primary">Capture</h3>
+<p class="text-secondary leading-relaxed">Snap a crisp photo of any rock, mineral, or crystal in its natural environment using our optimized lens.</p>
+</div>
+<div class="relative z-10 space-y-6 text-center group">
+<div class="w-24 h-24 bg-tertiary-fixed-dim rounded-full mx-auto flex items-center justify-center text-on-tertiary-fixed shadow-lg group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl" data-weight="fill">query_stats</span>
+</div>
+<h3 class="font-headline text-2xl font-bold text-primary">Identify</h3>
+<p class="text-secondary leading-relaxed">Our advanced neural network cross-references physical traits against a 50,000+ entry geological database.</p>
+</div>
+<div class="relative z-10 space-y-6 text-center group">
+<div class="w-24 h-24 mineral-gradient rounded-full mx-auto flex items-center justify-center text-on-primary shadow-lg group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl">menu_book</span>
+</div>
+<h3 class="font-headline text-2xl font-bold text-primary">Learn</h3>
+<p class="text-secondary leading-relaxed">Access deep insights into chemical composition, Mohs hardness, and industrial uses of your find.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Explore Minerals Gallery (Asymmetric) -->
+<section class="py-24 overflow-hidden" id="gallery">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+<div class="max-w-xl">
+<span class="font-label text-xs uppercase tracking-widest text-secondary">The Digital Vault</span>
+<h2 class="font-headline text-4xl font-bold text-primary mt-2">Explore Earth's Hidden Archives</h2>
+</div>
+<button class="text-primary font-label text-sm border-b-2 border-primary pb-1 hover:text-tertiary transition-colors">VIEW ALL SPECIMENS</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-[300px]">
+<div class="md:col-span-2 md:row-span-2 relative group overflow-hidden rounded-xl bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="vibrant blue azurite mineral cluster with crystalline shards on a clean neutral background with soft shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPsLqtQ24XvCnN0G7dhFTsQkJG9YQfnCxjDeI7-EglTyB-rBjxSg6N2xmgz01bDvxdND4XrHm-2mU3FmDXNJSl5gcLdBAFTh0A5YWnm6bIAQucUtV7Hj7F5g_kpcJ8Nc8g003aXxe21xZ8TZMwE-UELyu_F2TVCJ6kBEBjMO7V9W7dY1-THhGLgk9qJuSY4_Q6uLmB-bwW8gxC5I401Gy2FA7LSF2apgh_f0LYuoW-6hAhPdvWlVWz4Pw4B3QyADt-4fi3GdJr7Q"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex flex-col justify-end p-8 opacity-0 group-hover:opacity-100 transition-opacity">
+<h4 class="text-on-primary font-headline text-2xl font-bold">Azurite</h4>
+<p class="text-on-primary/80 font-label text-xs uppercase tracking-widest">Copper Carbonate Mineral</p>
+</div>
+</div>
+<div class="md:col-span-2 relative group overflow-hidden rounded-xl bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="geometric raw pyrite cubic crystal in a natural stone matrix with metallic golden sheen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCItZBUf8kM8p4sRBr_ba2EIWHgqyUmPlRUutS2n8CF5szwzNQSXhmP7-dkuAYj41QYp_T01AmKBO0DZ4YIrh4z_JzbdNNy7VwAkWXS7gKFBl3QJjY6oow9soEGPNftFUwxQJ8nPX7oBeIepqLATvi6VusgvGqTx1W0Hyvb_jKbdM1_ipKkqzj3VEfbMdZ0UkELbMPsOOt__RdbKFuyA66gv8Y9wSZns-zBZIFXZAfZ-lcaBNfjFJcrmotKRl6co3BAV5NbhqpRtg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity">
+<h4 class="text-on-primary font-headline text-xl font-bold">Fool's Gold</h4>
+</div>
+</div>
+<div class="relative group overflow-hidden rounded-xl bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="polished slice of agate showing concentric earthy rings of brown cream and translucent grey" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAn5JiHVZKnYsUQXuAKMMfbfLTyZnBsiRU-NfuSMwyUZpPyWNULTqMnbQqIiE_5vOlhDyz5e9xQgELhBHzTqxHmOcl4DHXHRXkGZvre0qNl_ewoNunM2MOQLeF_LU68oaogSdubeaNyBS7CjRwaYmI_5dIzaDYa2XErc3a0sZgNwNBFEsIZBzu6qe7mvViv9faxiAKcITuHS4Io_6JRfNb9dV-AK8rvW4dHhEou2UsBfsaRlcsREy1uaYSvJZ6dSd7h-S3fSxC1lA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity">
+<h4 class="text-on-primary font-headline text-lg font-bold">Agate</h4>
+</div>
+</div>
+<div class="relative group overflow-hidden rounded-xl bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="dark volcanic obsidian rock fragment with sharp edges and glassy reflective surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDALY8mTrKzwkf6QRaz9kWxjRQBSLM4-7FDozHb51Rktm_K-CsKqe3EYvO2-2nvNKFZz0pP7g6GbCzrCRJRJTbQ7FT4dq-zYR_IYUVE2CHIydeOW6Z208EkNAoNB59bnKs5KnugJlaAMatGm7OQMZgGg8chtYXiuRnjaoeZqy8qlO0XYPbTg1MbXTuygh2oFwvmhkYNY4Q6GBDUb9Tvq_YOS_bBC0BKdblehoDfSkwH2PiMi6-eQyT2Ax-pnl-r6XJICACiRQidAA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity">
+<h4 class="text-on-primary font-headline text-lg font-bold">Obsidian</h4>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials (Bento Style) -->
+<section class="py-24 bg-[#163826] text-on-primary">
+<div class="max-w-7xl mx-auto px-6">
+<div class="mb-16">
+<h2 class="font-headline text-3xl font-bold">Voices from the Field</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-primary-container p-8 rounded-2xl space-y-4">
+<div class="flex text-tertiary-fixed">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="italic text-on-primary-container leading-relaxed">"As an avid hiker, Stone Snap has turned every trail into a learning experience. The accuracy even in low-light conditions is remarkable."</p>
+<div class="flex items-center gap-4 pt-4 border-t border-on-primary-container/10">
+<div class="w-10 h-10 rounded-full bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="portrait of a man with a beard and outdoor gear smiling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3vmoX5cju17_o-sJdzwtvaKwzUmMTdvFUNSodd8cPu7GKQHorZUrPz63z4rZ_0xi4vmIzwiUP6Kz1uoaSDJu14h9LNXSPKXRUCCzyVE3oWqIoYMzessXpS02hdClPlnOeZCDL-RlBo6r7dgs6eDvYDAy2Rl7nJXxjxtcLsIqRVgKAFEucgxDTjKE-2JQ4LEE_917J0ACZD8vF37JRdbesteMZo6Tmp1AFCr8GRwP0UCBfOvjxsK8B8yAUw_3enXIaiPPqcGQ0DQ"/>
+</div>
+<div>
+<p class="font-bold text-sm">Marcus Thorne</p>
+<p class="text-[10px] uppercase tracking-widest opacity-60">Adventure Blogger</p>
+</div>
+</div>
+</div>
+<div class="bg-primary-container p-8 rounded-2xl space-y-4 md:mt-12">
+<div class="flex text-tertiary-fixed">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star_half</span>
+</div>
+<p class="italic text-on-primary-container leading-relaxed">"The geological data provided isn't just surface-level. It gives chemical breakdowns that I'd usually need a lab manual for. Essential for field work."</p>
+<div class="flex items-center gap-4 pt-4 border-t border-on-primary-container/10">
+<div class="w-10 h-10 rounded-full bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="portrait of a professional woman with glasses and focused expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBF8-zsORO0kWhlqe8pc4AEBa2Vud-b8d4Msbv4v-OI-b9b3ErwEAN98CcxqVoyWl3_YJIo_GkuCOKIy4r-_8AtM28nPGrs7eNwcB43WwivcUFh25JSqosS6Um3o_o8MWRMrBUp6Myh2d7NTvGkaKbhlpKKls5r9l9cGJUbZT7zU16QgknYG8m8Nq3RskcJ6K1831eN5Slz-vkJlbnRUq2fJMuDn4j9184DDrD2aLFE6Efe5wPOHH9JizchVC8n89hTNr4irAcWug"/>
+</div>
+<div>
+<p class="font-bold text-sm">Sarah Jenkins</p>
+<p class="text-[10px] uppercase tracking-widest opacity-60">Geology Student</p>
+</div>
+</div>
+</div>
+<div class="bg-primary-container p-8 rounded-2xl space-y-4">
+<div class="flex text-tertiary-fixed">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="italic text-on-primary-container leading-relaxed">"Clean UI, zero fluff. It just works. My kids are now obsessed with identifying every pebble in our backyard!"</p>
+<div class="flex items-center gap-4 pt-4 border-t border-on-primary-container/10">
+<div class="w-10 h-10 rounded-full bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="portrait of a smiling father in a casual outdoor setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8R0T-A6G8TeTYfE_0hdrhTFQeYmhOrk86tT7JV-ijOZZaY8N5qdtmnXmmL6Kb6FuhnDt66lGggec-crNk6ZbOl5AL6sWfgq6OstU18B4rJhgW2UywTpBYbyf0LNlL82jNwExTciKeKrNOcmWcbTMxDcfAHbRwkOdCk2bDWBSW1QsuBBZ8sPv1Co4w7GAvzBC36IoibOscbq2xVV38glGfKvya64Cw17WnrHqhQ-05Q7ZTjKA-RGXGBhNnUwj71cOuvx4rgaQgrA"/>
+</div>
+<div>
+<p class="font-bold text-sm">David Chen</p>
+<p class="text-[10px] uppercase tracking-widest opacity-60">Nature Enthusiast</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Download CTA -->
+<section class="py-32 px-6" id="about">
+<div class="max-w-4xl mx-auto text-center space-y-8 bg-surface-container-high p-16 rounded-[3rem] relative overflow-hidden">
+<div class="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 bg-tertiary-fixed-dim/20 rounded-full blur-3xl"></div>
+<h2 class="font-headline text-4xl md:text-6xl font-bold text-primary leading-tight">Ready to Reveal the Earth's Secrets?</h2>
+<p class="text-xl text-secondary max-w-2xl mx-auto">Join over 500,000 explorers documenting the lithosphere, one stone at a time.</p>
+<div class="flex flex-col sm:flex-row gap-6 justify-center pt-8">
+<a class="mineral-gradient text-on-primary px-10 py-5 rounded-2xl font-label font-bold text-lg shadow-xl hover:-translate-y-1 transition-all flex items-center justify-center gap-3" href="#">
+<span class="material-symbols-outlined">download</span>
+                        Get Stone Snap
+                    </a>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#f6f3ed] dark:bg-[#1c1c18] full-width py-12 px-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center max-w-7xl mx-auto">
+<div class="space-y-4">
+<div class="text-lg font-bold text-[#163826] dark:text-[#fcf9f3]">Stone Snap</div>
+<p class="font-['Manrope'] text-sm uppercase tracking-widest text-[#48626e] dark:text-[#e5e2dc]">© 2026 Stone Snap. All rights reserved.</p>
+</div>
+<div class="flex flex-wrap gap-x-8 gap-y-4 md:justify-end font-['Manrope'] text-sm uppercase tracking-widest">
+<a class="text-[#48626e] dark:text-[#e5e2dc] hover:text-[#163826] dark:hover:text-[#ffba38] transition-colors" href="/privacy-policy">Privacy Policy</a>
+<a class="text-[#48626e] dark:text-[#e5e2dc] hover:text-[#163826] dark:hover:text-[#ffba38] transition-colors" href="mailto:stonesnapapp@gmail.com">Contact Us</a>
+</div>
+</div>
+</footer>
+</body></html>
