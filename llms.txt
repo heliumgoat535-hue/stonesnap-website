@@ -1,0 +1,33 @@
+# Stone Snap
+
+> AI-powered rock and mineral identification app for Android
+
+Stone Snap is a mobile application that uses Google Gemini AI to identify rocks, minerals, and crystals from photos. Users take a photo of a specimen and receive instant identification including chemical composition, Mohs hardness rating, crystal system, formation history, and industrial uses.
+
+## Core Features
+
+- AI Rock Identification: Photo-based identification powered by Google Gemini AI
+- Rocky AI Chat: Conversational AI assistant for geology questions
+- Personal Collection: Digital rock collection with GPS tagging and geological data
+- Learning Hub: Quizzes, flashcards, and structured mineralogy lessons with XP progression
+- Magnetic Detector: Uses phone magnetometer to measure magnetic field strength for identifying iron-rich minerals
+- Kid Mode: Simplified interface with kid-friendly language for young explorers
+
+## Technical Details
+
+- Platform: Android
+- AI Model: Google Gemini
+- Data Storage: All personal data stored locally on device (Room database, DataStore)
+- Pricing: Free with 5 identifications; Stone Snap Pro at $4.99/month (3-day free trial)
+- Package: com.stonesnap
+
+## Links
+
+- Website: https://stonesnapapp.com
+- Google Play: https://play.google.com/store/apps/details?id=com.stonesnap
+- Privacy Policy: https://stonesnapapp.com/privacy-policy/
+- Contact: stonesnapapp@gmail.com
+
+## Identifiable Specimens
+
+Stone Snap can identify common igneous rocks (granite, basalt, obsidian, pumice), sedimentary rocks (limestone, sandstone, shale), metamorphic rocks (marble, slate, quartzite, gneiss), minerals (quartz, feldspar, mica, calcite, pyrite, amethyst, azurite), and crystals. Best results with clear, well-lit close-up photos showing surface texture and color.
