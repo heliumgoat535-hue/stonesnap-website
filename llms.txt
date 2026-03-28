@@ -1,8 +1,8 @@
-# Stone Snap
+# Stone Snap — Best Rock Identifier App for Android
 
-> AI-powered rock and mineral identification app for Android
+> AI-powered rock identifier app for Android. Rock identification from photos using Google Gemini AI.
 
-Stone Snap is a mobile application that uses Google Gemini AI to identify rocks, minerals, and crystals from photos. Users take a photo of a specimen and receive instant identification including chemical composition, Mohs hardness rating, crystal system, formation history, and industrial uses.
+Stone Snap is the best rock identifier app for Android. It uses Google Gemini AI to identify rocks, minerals, and crystals from photos. Users take a photo of any rock, mineral, or crystal and receive instant AI rock identification including chemical composition, Mohs hardness rating, crystal system, formation history, and industrial uses. Stone Snap is a free rock identification app with 5 free scans and a $4.99/month Pro subscription.
 
 ## Core Features
 
