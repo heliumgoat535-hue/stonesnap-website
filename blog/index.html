@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Rock Identification Blog — Stone Snap</title>
+<meta name="description" content="Rock identification guides, mineral tips, and geology tutorials from Stone Snap. Learn how to identify rocks, minerals, and crystals from photos using AI."/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://stonesnapapp.com/blog/"/>
+
+<!-- Open Graph -->
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Rock Identification Blog — Stone Snap"/>
+<meta property="og:description" content="Rock identification guides, mineral tips, and geology tutorials. Learn how to identify rocks, minerals, and crystals from photos."/>
+<meta property="og:url" content="https://stonesnapapp.com/blog/"/>
+<meta property="og:site_name" content="Stone Snap"/>
+<meta property="og:image" content="https://stonesnapapp.com/og-image.png"/>
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+
+<!-- Preconnect -->
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+
+<script src="/tailwind.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+</style>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "surface": "#fcf9f3",
+        "primary": "#163826",
+        "secondary": "#48626e",
+        "on-primary": "#ffffff",
+        "surface-container": "#f0eee8",
+        "surface-container-high": "#ebe8e2",
+        "surface-container-highest": "#e5e2dc",
+        "surface-container-low": "#f6f3ed",
+        "outline-variant": "#c1c8c1",
+        "outline": "#727973",
+        "tertiary-fixed-dim": "#ffba38",
+        "on-surface": "#1c1c18",
+        "on-surface-variant": "#424843",
+        "tertiary": "#442d00",
+        "primary-container": "#2d4f3c",
+        "on-primary-container": "#9ac0a7",
+      },
+      fontFamily: {
+        "headline": ["Space Grotesk"],
+        "body": ["Manrope"],
+        "label": ["Inter"]
+      },
+      borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+    },
+  },
+}
+</script>
+<style>
+.material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+.mineral-gradient { background: linear-gradient(135deg, #163826 0%, #2d4f3c 100%); }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Stone Snap Rock Identification Blog",
+  "url": "https://stonesnapapp.com/blog/",
+  "description": "Rock identification guides, mineral tips, and geology tutorials from Stone Snap.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Stone Snap",
+    "url": "https://stonesnapapp.com"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://stonesnapapp.com"},
+    {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://stonesnapapp.com/blog/"}
+  ]
+}
+</script>
+</head>
+<body class="bg-surface text-on-surface font-body antialiased">
+
+<!-- Nav -->
+<nav class="sticky top-0 z-50 bg-surface/80 backdrop-blur-lg border-b border-outline-variant/20">
+<div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+  <a href="/" class="font-headline font-bold text-xl text-primary tracking-tight">Stone Snap</a>
+  <div class="hidden md:flex items-center gap-8 font-headline font-bold tracking-tight">
+    <a class="text-secondary hover:text-primary transition-colors" href="/#features">Features</a>
+    <a class="text-secondary hover:text-primary transition-colors" href="/#faq">FAQ</a>
+    <a class="text-primary font-bold" href="/blog/">Blog</a>
+    <a href="https://play.google.com/store/apps/details?id=com.stonesnap" class="mineral-gradient text-on-primary px-6 py-2 rounded-lg hover:opacity-90 transition-all font-label uppercase text-xs tracking-widest" rel="noopener" target="_blank">Download Now</a>
+  </div>
+  <button id="mobile-menu-btn" class="md:hidden text-primary" aria-label="Open menu" aria-expanded="false">
+    <span class="material-symbols-outlined">menu</span>
+  </button>
+</div>
+<div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-3 font-headline font-bold">
+  <a class="block text-secondary hover:text-primary py-2" href="/#features">Features</a>
+  <a class="block text-secondary hover:text-primary py-2" href="/#faq">FAQ</a>
+  <a class="block text-primary py-2" href="/blog/">Blog</a>
+  <a href="https://play.google.com/store/apps/details?id=com.stonesnap" class="block mineral-gradient text-on-primary px-6 py-3 rounded-lg text-center font-label uppercase text-xs tracking-widest" rel="noopener" target="_blank">Download Now</a>
+</div>
+</nav>
+
+<main>
+<!-- Header -->
+<section class="py-20 px-6 bg-surface-container-low">
+  <div class="max-w-4xl mx-auto">
+    <nav aria-label="Breadcrumb" class="mb-6">
+      <ol class="flex items-center gap-2 text-sm text-secondary font-label">
+        <li><a href="/" class="hover:text-primary transition-colors">Home</a></li>
+        <li><span class="material-symbols-outlined text-sm">chevron_right</span></li>
+        <li class="text-primary font-bold">Blog</li>
+      </ol>
+    </nav>
+    <span class="font-label text-xs uppercase tracking-[0.2em] text-secondary bg-surface-container-high px-3 py-1 rounded-full">Rock Identification Guides</span>
+    <h1 class="font-headline text-4xl md:text-6xl font-bold text-primary mt-4 mb-4 leading-tight">Rock Identification Blog</h1>
+    <p class="text-xl text-secondary max-w-2xl leading-relaxed">Practical guides on identifying rocks, minerals, and crystals — from taking better photos to understanding geological data.</p>
+  </div>
+</section>
+
+<!-- Posts Grid -->
+<section class="py-20 px-6">
+  <div class="max-w-5xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+      <!-- Post 1 -->
+      <article class="bg-surface-container-low rounded-2xl overflow-hidden border border-outline-variant/20 hover:border-primary/30 transition-all group">
+        <div class="mineral-gradient p-8 min-h-[140px] flex items-end">
+          <span class="material-symbols-outlined text-5xl text-on-primary/60">star_rate</span>
+        </div>
+        <div class="p-8 space-y-4">
+          <div class="flex items-center gap-3">
+            <span class="font-label text-xs uppercase tracking-widest text-tertiary bg-[#ffba38]/20 px-2 py-1 rounded-full">App Guide</span>
+            <span class="text-sm text-secondary">Mar 25, 2026</span>
+          </div>
+          <h2 class="font-headline text-xl font-bold text-primary group-hover:text-primary/80 transition-colors leading-snug">
+            <a href="/blog/best-rock-identifier-apps/">Best Rock Identifier Apps for Android (2026)</a>
+          </h2>
+          <p class="text-secondary leading-relaxed text-sm">A direct comparison of every rock identifier app on Google Play — what each one gets right, where they fall short, and which one to install.</p>
+          <a href="/blog/best-rock-identifier-apps/" class="inline-flex items-center gap-1 text-primary font-label font-bold text-sm hover:gap-2 transition-all">
+            Read guide <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- Post 2 -->
+      <article class="bg-surface-container-low rounded-2xl overflow-hidden border border-outline-variant/20 hover:border-primary/30 transition-all group">
+        <div class="bg-[#2d4f3c] p-8 min-h-[140px] flex items-end">
+          <span class="material-symbols-outlined text-5xl text-on-primary/60">photo_camera</span>
+        </div>
+        <div class="p-8 space-y-4">
+          <div class="flex items-center gap-3">
+            <span class="font-label text-xs uppercase tracking-widest text-tertiary bg-[#ffba38]/20 px-2 py-1 rounded-full">Tutorial</span>
+            <span class="text-sm text-secondary">Mar 22, 2026</span>
+          </div>
+          <h2 class="font-headline text-xl font-bold text-primary group-hover:text-primary/80 transition-colors leading-snug">
+            <a href="/blog/how-to-identify-rocks-from-photos/">How to Identify Rocks from Photos: A Complete Guide</a>
+          </h2>
+          <p class="text-secondary leading-relaxed text-sm">Step-by-step: how to photograph specimens for best results, what the AI looks for, and how to interpret identification data.</p>
+          <a href="/blog/how-to-identify-rocks-from-photos/" class="inline-flex items-center gap-1 text-primary font-label font-bold text-sm hover:gap-2 transition-all">
+            Read guide <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- Post 3 -->
+      <article class="bg-surface-container-low rounded-2xl overflow-hidden border border-outline-variant/20 hover:border-primary/30 transition-all group">
+        <div class="bg-[#48626e] p-8 min-h-[140px] flex items-end">
+          <span class="material-symbols-outlined text-5xl text-on-primary/60">help</span>
+        </div>
+        <div class="p-8 space-y-4">
+          <div class="flex items-center gap-3">
+            <span class="font-label text-xs uppercase tracking-widest text-tertiary bg-[#ffba38]/20 px-2 py-1 rounded-full">Reference</span>
+            <span class="text-sm text-secondary">Mar 18, 2026</span>
+          </div>
+          <h2 class="font-headline text-xl font-bold text-primary group-hover:text-primary/80 transition-colors leading-snug">
+            <a href="/blog/what-rock-is-this/">What Rock Is This? Guide to Common Rocks and Minerals</a>
+          </h2>
+          <p class="text-secondary leading-relaxed text-sm">Found a rock and wondering what it is? This field guide covers the most common rocks and minerals you'll find — and how to tell them apart.</p>
+          <a href="/blog/what-rock-is-this/" class="inline-flex items-center gap-1 text-primary font-label font-bold text-sm hover:gap-2 transition-all">
+            Read guide <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- Post 4 -->
+      <article class="bg-surface-container-low rounded-2xl overflow-hidden border border-outline-variant/20 hover:border-primary/30 transition-all group">
+        <div class="bg-[#163826] p-8 min-h-[140px] flex items-end">
+          <span class="material-symbols-outlined text-5xl text-on-primary/60">psychology</span>
+        </div>
+        <div class="p-8 space-y-4">
+          <div class="flex items-center gap-3">
+            <span class="font-label text-xs uppercase tracking-widest text-tertiary bg-[#ffba38]/20 px-2 py-1 rounded-full">Technology</span>
+            <span class="text-sm text-secondary">Mar 15, 2026</span>
+          </div>
+          <h2 class="font-headline text-xl font-bold text-primary group-hover:text-primary/80 transition-colors leading-snug">
+            <a href="/blog/ai-rock-identification/">AI Rock Identification: How Machine Learning Identifies Rocks</a>
+          </h2>
+          <p class="text-secondary leading-relaxed text-sm">How AI models analyze rock photos — what visual features they look for, why they outperform field guides, and where they still struggle.</p>
+          <a href="/blog/ai-rock-identification/" class="inline-flex items-center gap-1 text-primary font-label font-bold text-sm hover:gap-2 transition-all">
+            Read guide <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- Post 5 -->
+      <article class="bg-surface-container-low rounded-2xl overflow-hidden border border-outline-variant/20 hover:border-primary/30 transition-all group md:col-span-2">
+        <div class="grid md:grid-cols-2">
+          <div class="bg-gradient-to-br from-[#614200] to-[#442d00] p-8 min-h-[140px] flex items-end">
+            <span class="material-symbols-outlined text-5xl text-on-primary/60">diamond</span>
+          </div>
+          <div class="p-8 space-y-4 flex flex-col justify-center">
+            <div class="flex items-center gap-3">
+              <span class="font-label text-xs uppercase tracking-widest text-tertiary bg-[#ffba38]/20 px-2 py-1 rounded-full">Reference</span>
+              <span class="text-sm text-secondary">Mar 10, 2026</span>
+            </div>
+            <h2 class="font-headline text-xl font-bold text-primary group-hover:text-primary/80 transition-colors leading-snug">
+              <a href="/blog/crystal-mineral-identifier/">Crystal Identifier Guide: How to Tell Crystals, Minerals, and Gemstones Apart</a>
+            </h2>
+            <p class="text-secondary leading-relaxed text-sm">Crystals, minerals, gemstones — the terminology is confusing. This guide explains the differences and covers the most common specimens you'll encounter.</p>
+            <a href="/blog/crystal-mineral-identifier/" class="inline-flex items-center gap-1 text-primary font-label font-bold text-sm hover:gap-2 transition-all">
+              Read guide <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="py-20 px-6 bg-surface-container-low">
+  <div class="max-w-3xl mx-auto text-center space-y-6">
+    <h2 class="font-headline text-3xl md:text-4xl font-bold text-primary">Try AI Rock Identification Free</h2>
+    <p class="text-secondary text-lg">5 free rock identifications included. No account required.</p>
+    <a href="https://play.google.com/store/apps/details?id=com.stonesnap" class="inline-flex items-center gap-3 mineral-gradient text-on-primary px-8 py-4 rounded-xl font-label font-bold text-sm shadow-lg hover:opacity-90 transition-all" rel="noopener" target="_blank">
+      <span class="material-symbols-outlined">download</span>
+      Get Stone Snap on Google Play
+    </a>
+  </div>
+</section>
+</main>
+
+<!-- Footer -->
+<footer class="bg-[#f6f3ed] py-12 px-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center max-w-7xl mx-auto">
+  <div class="space-y-4">
+    <div class="text-lg font-bold text-primary font-headline">Stone Snap</div>
+    <p class="font-body text-sm text-secondary">The best AI rock identifier app for Android. Rock identification from photos powered by Google Gemini AI.</p>
+    <p class="font-body text-xs uppercase tracking-widest text-outline">&copy; 2026 Stone Snap. All rights reserved.</p>
+  </div>
+  <div class="flex flex-wrap gap-x-8 gap-y-4 md:justify-end font-body text-sm uppercase tracking-widest">
+    <a class="text-secondary hover:text-primary transition-colors" href="/blog/">Blog</a>
+    <a class="text-secondary hover:text-primary transition-colors" href="/privacy-policy">Privacy Policy</a>
+    <a class="text-secondary hover:text-primary transition-colors" href="mailto:stonesnapapp@gmail.com">Contact</a>
+    <a class="text-secondary hover:text-primary transition-colors" href="https://play.google.com/store/apps/details?id=com.stonesnap" rel="noopener" target="_blank">Google Play</a>
+  </div>
+</div>
+</footer>
+
+<script>
+(function() {
+  var btn = document.getElementById('mobile-menu-btn');
+  var menu = document.getElementById('mobile-menu');
+  if (btn && menu) {
+    btn.addEventListener('click', function() {
+      menu.classList.toggle('hidden');
+      btn.setAttribute('aria-expanded', !menu.classList.contains('hidden'));
+    });
+  }
+})();
+</script>
+</body>
+</html>

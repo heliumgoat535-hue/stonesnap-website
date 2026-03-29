@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Rock Identification: How Machine Learning Identifies Rocks — Stone Snap Blog</title>
+<meta name="description" content="How does AI rock identification actually work? We explain the computer vision behind rock identifier apps, what features the AI analyzes, and why it beats traditional field guides."/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://stonesnapapp.com/blog/ai-rock-identification/"/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="AI Rock Identification: How Machine Learning Identifies Rocks"/>
+<meta property="og:description" content="The computer vision and AI behind rock identification apps — what the model sees, how it's trained, and where it still struggles."/>
+<meta property="og:url" content="https://stonesnapapp.com/blog/ai-rock-identification/"/>
+<meta property="og:site_name" content="Stone Snap"/>
+<meta property="og:image" content="https://stonesnapapp.com/og-image.png"/>
+<meta property="article:published_time" content="2026-03-15"/>
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<script src="/tailwind.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+</style>
+<script id="tailwind-config">
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        "surface": "#fcf9f3","primary": "#163826","secondary": "#48626e","on-primary": "#ffffff",
+        "surface-container": "#f0eee8","surface-container-high": "#ebe8e2","surface-container-low": "#f6f3ed",
+        "outline-variant": "#c1c8c1","outline": "#727973","tertiary-fixed-dim": "#ffba38",
+        "on-surface": "#1c1c18","on-surface-variant": "#424843","tertiary": "#442d00",
+      },
+      fontFamily: {"headline": ["Space Grotesk"],"body": ["Manrope"],"label": ["Inter"]},
+      borderRadius: {"DEFAULT": "0.125rem","lg": "0.25rem","xl": "0.5rem","full": "0.75rem"},
+    },
+  },
+}
+</script>
+<style>
+.material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+.mineral-gradient { background: linear-gradient(135deg, #163826 0%, #2d4f3c 100%); }
+article h2 { font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 700; color: #163826; margin-top: 2.5rem; margin-bottom: 1rem; line-height: 1.3; }
+article h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.15rem; font-weight: 600; color: #163826; margin-top: 1.75rem; margin-bottom: 0.75rem; }
+article p { margin-bottom: 1.25rem; line-height: 1.8; color: #424843; }
+article ul { margin-bottom: 1.25rem; padding-left: 1.5rem; }
+article ul li { margin-bottom: 0.5rem; line-height: 1.7; color: #424843; list-style-type: disc; }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "AI Rock Identification: How Machine Learning Identifies Rocks and Minerals",
+  "description": "How AI rock identification works — the computer vision, training data, and visual features that make modern rock identifier apps accurate.",
+  "url": "https://stonesnapapp.com/blog/ai-rock-identification/",
+  "datePublished": "2026-03-15",
+  "dateModified": "2026-03-15",
+  "author": {"@type": "Organization", "name": "Stone Snap", "url": "https://stonesnapapp.com"},
+  "publisher": {"@type": "Organization", "name": "Stone Snap", "url": "https://stonesnapapp.com"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://stonesnapapp.com"},
+    {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://stonesnapapp.com/blog/"},
+    {"@type": "ListItem", "position": 3, "name": "AI Rock Identification", "item": "https://stonesnapapp.com/blog/ai-rock-identification/"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question","name": "How does AI identify rocks from photos?","acceptedAnswer": {"@type": "Answer","text": "AI rock identification uses computer vision models trained on millions of labeled geological images. When you photograph a rock, the AI analyzes visual features including color patterns, grain size and texture, crystal structure, surface morphology, lustre, and fracture patterns. Large language vision models like Google Gemini can reason about these features across geological context, not just pattern-match against a fixed database."}},
+    {"@type": "Question","name": "How accurate is AI rock identification?","acceptedAnswer": {"@type": "Answer","text": "AI rock identification accuracy depends heavily on the model used and photo quality. Apps using large vision models like Google Gemini correctly identify common rocks (granite, basalt, limestone, sandstone, quartz) from good photos with 85-95% accuracy. Rare minerals, heavily weathered specimens, and poor-quality photos reduce accuracy. AI identification is comparable to an experienced amateur geologist for common specimens."}},
+    {"@type": "Question","name": "What AI does Stone Snap use for rock identification?","acceptedAnswer": {"@type": "Answer","text": "Stone Snap uses Google Gemini AI for rock identification. Gemini is a large multimodal model that can analyze images and provide detailed geological context — not just a species label but chemical composition, Mohs hardness, crystal system, formation environment, and where the specimen is typically found."}}
+  ]
+}
+</script>
+</head>
+<body class="bg-surface text-on-surface font-body antialiased">
+
+<nav class="sticky top-0 z-50 bg-surface/80 backdrop-blur-lg border-b border-outline-variant/20">
+<div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+  <a href="/" class="font-headline font-bold text-xl text-primary tracking-tight">Stone Snap</a>
+  <div class="hidden md:flex items-center gap-8 font-headline font-bold tracking-tight">
+    <a class="text-secondary hover:text-primary transition-colors" href="/#features">Features</a>
+    <a class="text-secondary hover:text-primary transition-colors" href="/blog/">Blog</a>
+    <a href="https://play.google.com/store/apps/details?id=com.stonesnap" class="mineral-gradient text-on-primary px-6 py-2 rounded-lg hover:opacity-90 transition-all font-label uppercase text-xs tracking-widest" rel="noopener" target="_blank">Download Free</a>
+  </div>
+</div>
+</nav>
+
+<main class="max-w-3xl mx-auto px-6 py-16">
+
+  <nav aria-label="Breadcrumb" class="mb-8">
+    <ol class="flex flex-wrap items-center gap-2 text-sm text-secondary font-label">
+      <li><a href="/" class="hover:text-primary transition-colors">Home</a></li>
+      <li><span class="material-symbols-outlined text-sm">chevron_right</span></li>
+      <li><a href="/blog/" class="hover:text-primary transition-colors">Blog</a></li>
+      <li><span class="material-symbols-outlined text-sm">chevron_right</span></li>
+      <li class="text-primary font-bold">AI Rock Identification</li>
+    </ol>
+  </nav>
+
+  <header class="mb-12">
+    <div class="flex items-center gap-3 mb-4">
+      <span class="font-label text-xs uppercase tracking-widest text-tertiary bg-[#ffba38]/20 px-2 py-1 rounded-full">Technology</span>
+      <time datetime="2026-03-15" class="text-sm text-secondary">March 15, 2026</time>
+      <span class="text-secondary text-sm">· 10 min read</span>
+    </div>
+    <h1 class="font-headline text-3xl md:text-5xl font-bold text-primary leading-tight mb-6">AI Rock Identification: How Machine Learning Identifies Rocks and Minerals</h1>
+    <p class="text-xl text-secondary leading-relaxed">Point your phone at a rock and get a precise identification in five seconds. Here's what's actually happening — and why modern AI models are fundamentally better at this than anything that came before.</p>
+  </header>
+
+  <article class="prose max-w-none">
+
+    <p>The problem with identifying rocks has always been the same: rocks are visually complex, and the features that distinguish one from another require pattern recognition that takes years to develop. A geologist can look at a hand specimen and identify it in seconds because they've spent years building an internalized visual taxonomy of rocks and minerals. Field guides tried to externalize this knowledge, but plates and written descriptions are poor substitutes for the pattern recognition that comes from experience.</p>
+
+    <p>AI rock identification solves this differently. Instead of externalizing knowledge into text and images that humans then try to match against specimens, it builds the pattern recognition directly into the model — trained on millions of labeled geological images until the model develops reliable intuitions about what differentiates granite from diorite, basalt from gabbro, or amethyst from fluorite.</p>
+
+    <h2>What Is Computer Vision, and How Does It Apply to Rocks?</h2>
+
+    <p>Computer vision is the branch of AI concerned with enabling computers to extract meaningful information from images. Modern computer vision uses convolutional neural networks (CNNs) and, increasingly, transformer architectures — the same technology behind large language models like GPT-4 and Claude.</p>
+
+    <p>For rock identification specifically, computer vision models learn to recognize combinations of visual features that reliably predict what a rock or mineral is:</p>
+
+    <ul>
+      <li><strong>Color patterns:</strong> Not just dominant color, but color distribution, zoning, and how color varies across the specimen. Amethyst's purple coloration in quartz crystals, pyrite's uniform brass-yellow metallic color, and malachite's distinctive banded green-and-black are all color-pattern signatures.</li>
+      <li><strong>Grain size and texture:</strong> Whether crystals are visible to the naked eye (coarse-grained granite) or too small to see (fine-grained basalt) is a fundamental discriminator between related rocks. The AI can assess grain size from the apparent texture in a photo.</li>
+      <li><strong>Crystal morphology:</strong> Cubic pyrite crystals, hexagonal quartz prisms, and platy mica crystals all have distinctive shapes that the AI has learned to recognize. Even when crystals aren't perfectly formed, the tendency toward certain geometric arrangements is usually preserved.</li>
+      <li><strong>Surface lustre:</strong> How light reflects from a surface — metallic, glassy, pearly, resinous, waxy, dull — is highly characteristic. The AI has learned what each lustre type looks like across different lighting conditions.</li>
+      <li><strong>Fracture and cleavage:</strong> Conchoidal (curved, shell-like) fracture is characteristic of quartz and obsidian. Perfect cubic cleavage appears in halite and galena. The pattern of how a mineral breaks is visible in photos as smooth flat faces (cleavage) or irregular curved surfaces (fracture).</li>
+      <li><strong>Structural context:</strong> Whether minerals appear in isolation, intergrown with other minerals, as veins cutting through host rock, or as vesicle fillings all provide geological context that a sufficiently powerful model can use.</li>
+    </ul>
+
+    <h2>Why Large Language Models Changed Everything</h2>
+
+    <p>Early rock identifier apps used purpose-built image classifiers: neural networks trained specifically on geological images, output limited to a fixed set of rock and mineral species. These worked for well-documented common specimens but were brittle — unusual lighting, weathering, or anything outside the training distribution led to wrong answers, and the model had no way to express uncertainty meaningfully.</p>
+
+    <p>Large multimodal models like Google Gemini — which Stone Snap uses — are different in kind, not just degree. These models have been trained on vast amounts of scientific text (geology textbooks, mineralogy papers, museum catalogs) alongside millions of images. They don't just pattern-match visual features against a database; they reason about what they're seeing in geological context.</p>
+
+    <p>This means a large model can:</p>
+    <ul>
+      <li>Recognize that a specimen looks like quartz but the crystal habit and context suggest it's actually topaz (both vitreous, both can be colorless, but topaz has different crystal system and cleavage)</li>
+      <li>Note when an identification has low confidence and explain why — "the texture is consistent with basalt but the high silica content suggested by the mineralogy could indicate andesite"</li>
+      <li>Provide geological context that a classifier can't — not just "granite" but its formation environment, typical mineral assemblage, and why it looks the way it does</li>
+      <li>Identify weathering products separately from the parent rock</li>
+    </ul>
+
+    <h2>What Visual Features Does AI Prioritize?</h2>
+
+    <p>Research into AI geological identification suggests the model's attention (which parts of the image are most influential in the identification) concentrates on several key areas:</p>
+
+    <h3>Mineral grain boundaries</h3>
+    <p>The boundaries between mineral grains in coarse-grained rocks carry substantial information about rock type. Granite's interlocking quartz, feldspar, and mica grains have a distinctive intergrown texture that contrasts with gabbro (interlocked pyroxene and plagioclase) or diorite (quartz-poor, dominated by feldspar and hornblende).</p>
+
+    <h3>Surface microtexture</h3>
+    <p>Fine-scale texture — visible when photographed close-up — carries information about grain size, crystal habit, and weathering state. The AI has learned correlations between specific microtextures and rock types that are not always obvious to human observers.</p>
+
+    <h3>Color histograms and distributions</h3>
+    <p>Beyond the dominant color, the distribution of colors across the specimen is diagnostic. Granite's salt-and-pepper pattern (interspersed white, grey, and black grains) differs from gneiss's segregated alternating bands of the same colors. The AI analyzes both what colors are present and how they're spatially distributed.</p>
+
+    <h3>Specular reflection patterns</h3>
+    <p>How light reflects from crystal faces — the pattern of highlights — reveals crystal orientation and habit. Mica's characteristic sheet-parallel glitter, pyrite's cubic face reflections, and quartz's prismatic reflections are all identifiable from photo specular patterns.</p>
+
+    <h2>What Stone Snap Returns After AI Identification</h2>
+
+    <p>Stone Snap uses Google Gemini AI to do more than just name the specimen. After identifying a rock or mineral, it returns a complete geological profile:</p>
+
+    <ul>
+      <li><strong>Mohs hardness:</strong> The relative hardness of the mineral on a scale from 1 (talc) to 10 (diamond). This is immediately verifiable with physical tests — quartz (Mohs 7) scratches glass, calcite (Mohs 3) is scratched by a steel knife.</li>
+      <li><strong>Chemical composition:</strong> The mineral formula (SiO₂ for quartz, CaCO₃ for calcite, FeS₂ for pyrite) explains why it looks and behaves as it does.</li>
+      <li><strong>Crystal system:</strong> The geometric symmetry of the mineral's internal structure — cubic, hexagonal, orthorhombic, etc.</li>
+      <li><strong>Formation environment:</strong> Where and how the rock or mineral formed. Basalt in lava flows, granite in deep plutonic bodies, sandstone in ancient river deltas or beaches.</li>
+      <li><strong>Common locations:</strong> Where this specimen is typically found geographically, which helps contextualize whether your find makes geological sense for your location.</li>
+      <li><strong>Industrial uses:</strong> What the mineral is used for commercially — granite in construction, quartz in electronics, calcite in cement.</li>
+    </ul>
+
+    <h2>Where AI Rock Identification Still Struggles</h2>
+
+    <p>Honest assessment of the technology requires acknowledging its limits:</p>
+
+    <ul>
+      <li><strong>Heavily weathered specimens:</strong> Weathering transforms surface chemistry and color dramatically. A fresh pyrite surface is metallic brass-yellow; heavily oxidized pyrite is brown-red (limonite coating). The AI sees the weathered surface, not the fresh mineral.</li>
+      <li><strong>Rare minerals:</strong> AI accuracy correlates with the volume of training examples. Common minerals with thousands of labeled training images (quartz, feldspar, calcite) are identified reliably. Rare minerals with sparse training data are less reliable.</li>
+      <li><strong>Mixed specimens:</strong> Rocks that contain veins, coatings, or inclusions of different minerals can confuse identification if the photo shows the secondary feature rather than the primary rock.</li>
+      <li><strong>Poor photo quality:</strong> Motion blur, flash photography, extreme lighting, and very small specimens in large frames all degrade identification accuracy. The AI can only analyze what's in the image.</li>
+      <li><strong>Petrographically similar species:</strong> Some rocks and minerals are visually very similar and require optical microscopy or chemical analysis for definitive identification. AI from photos can distinguish granite from basalt but may struggle to distinguish granodiorite from tonalite.</li>
+    </ul>
+
+    <p>For high-confidence identifications of common specimens from good photos, AI rock identification is accurate and fast. For uncertain results — indicated by low confidence scores or identification of a rare mineral — treat the AI result as a hypothesis to verify with physical tests (hardness, streak, acid test) or professional consultation.</p>
+
+    <div class="my-10 p-8 bg-surface-container-low rounded-2xl border border-outline-variant/20 text-center">
+      <h3 class="font-headline text-xl font-bold text-primary mb-2">Try AI Rock Identification</h3>
+      <p class="text-secondary mb-6 text-sm">Stone Snap uses Google Gemini AI — free on Android, 5 identifications included.</p>
+      <a href="https://play.google.com/store/apps/details?id=com.stonesnap" class="inline-flex items-center gap-2 mineral-gradient text-on-primary px-8 py-4 rounded-xl font-label font-bold text-sm shadow hover:opacity-90 transition-all" rel="noopener" target="_blank">
+        <span class="material-symbols-outlined">download</span>
+        Download Stone Snap
+      </a>
+    </div>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>How does AI identify rocks from photos?</h3>
+    <p>AI rock identification uses large vision models trained on millions of labeled geological images. When you submit a photo, the model analyzes visual features — color patterns, grain texture, crystal morphology, lustre, fracture patterns — and cross-references them with geological knowledge to produce an identification. Apps like Stone Snap use Google Gemini, which can reason about geological context rather than just matching patterns against a fixed database.</p>
+
+    <h3>How accurate is AI rock identification?</h3>
+    <p>For common rocks and minerals photographed clearly in good light, AI rock identification accuracy is 85-95%. This is comparable to an experienced amateur geologist for standard specimens. Accuracy decreases for rare minerals, heavily weathered specimens, and poor-quality photos. High-confidence identifications of common specimens are generally reliable; low-confidence results should be verified with physical tests.</p>
+
+    <h3>What AI does Stone Snap use?</h3>
+    <p>Stone Snap uses Google Gemini AI — a large multimodal model that analyzes both images and geological context. Gemini returns not just the specimen name but chemical composition, Mohs hardness, crystal system, formation environment, and common locations. This is significantly more informative than purpose-built classifiers that only return a species label.</p>
+
+    <h3>Is AI better than a field guide for rock identification?</h3>
+    <p>For most practical purposes, yes. AI rock identification from photos is faster, returns more structured data, and for common specimens is more accurate than cross-referencing written field guide plates. Field guides remain useful for understanding geological context, reading the landscape, and verifying uncertain AI results. The best approach is using both: AI for rapid identification, physical tests and field guides for verification of unusual specimens.</p>
+
+  </article>
+
+  <section class="mt-16 pt-12 border-t border-outline-variant/30">
+    <h2 class="font-headline text-2xl font-bold text-primary mb-8">Related Guides</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <a href="/blog/how-to-identify-rocks-from-photos/" class="group p-6 bg-surface-container-low rounded-2xl border border-outline-variant/20 hover:border-primary/30 transition-all">
+        <p class="font-label text-xs uppercase tracking-widest text-secondary mb-2">Tutorial</p>
+        <h3 class="font-headline font-bold text-primary group-hover:text-primary/80 mb-2">How to Identify Rocks from Photos</h3>
+        <p class="text-secondary text-sm">Photography tips that maximize AI identification accuracy.</p>
+      </a>
+      <a href="/blog/best-rock-identifier-apps/" class="group p-6 bg-surface-container-low rounded-2xl border border-outline-variant/20 hover:border-primary/30 transition-all">
+        <p class="font-label text-xs uppercase tracking-widest text-secondary mb-2">App Guide</p>
+        <h3 class="font-headline font-bold text-primary group-hover:text-primary/80 mb-2">Best Rock Identifier Apps (2026)</h3>
+        <p class="text-secondary text-sm">Comparison of every rock identification app on Google Play.</p>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="bg-[#f6f3ed] py-12 px-6 mt-16">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center max-w-7xl mx-auto">
+  <div class="space-y-4">
+    <div class="text-lg font-bold text-primary font-headline">Stone Snap</div>
+    <p class="font-body text-sm text-secondary">The best AI rock identifier app for Android.</p>
+    <p class="font-body text-xs uppercase tracking-widest text-outline">&copy; 2026 Stone Snap. All rights reserved.</p>
+  </div>
+  <div class="flex flex-wrap gap-x-8 gap-y-4 md:justify-end font-body text-sm uppercase tracking-widest">
+    <a class="text-secondary hover:text-primary transition-colors" href="/blog/">Blog</a>
+    <a class="text-secondary hover:text-primary transition-colors" href="/privacy-policy">Privacy Policy</a>
+    <a class="text-secondary hover:text-primary transition-colors" href="https://play.google.com/store/apps/details?id=com.stonesnap" rel="noopener" target="_blank">Google Play</a>
+  </div>
+</div>
+</footer>
+</body>
+</html>

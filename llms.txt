@@ -28,6 +28,14 @@ Stone Snap is the best rock identifier app for Android. It uses Google Gemini AI
 - Privacy Policy: https://stonesnapapp.com/privacy-policy/
 - Contact: stonesnapapp@gmail.com
 
+## Blog — Rock Identification Guides
+
+- [Best Rock Identifier Apps for Android (2026)](https://stonesnapapp.com/blog/best-rock-identifier-apps/): Compares the top rock identifier apps including Stone Snap, iNaturalist, and Google Lens. Covers AI accuracy, offline capability, and feature depth.
+- [How to Identify Rocks from Photos](https://stonesnapapp.com/blog/how-to-identify-rocks-from-photos/): Step-by-step guide to photographing rocks for AI identification — specimen prep, lighting, framing, and how to interpret AI results.
+- [What Rock Is This? A Practical Identification Guide](https://stonesnapapp.com/blog/what-rock-is-this/): Reference guide covering igneous, sedimentary, and metamorphic rock types with identification tables for color, texture, and mineral content.
+- [AI Rock Identification: How Machine Learning Identifies Rocks](https://stonesnapapp.com/blog/ai-rock-identification/): Explains how computer vision models analyze visual features (color, luster, crystal structure, texture) to classify rocks and minerals. Covers why large models like Gemini outperform traditional field guides.
+- [Crystal Identifier Guide: Crystals, Minerals, and Gemstones](https://stonesnapapp.com/blog/crystal-mineral-identifier/): Explains the difference between minerals, crystals, and gemstones. Covers crystal identification properties (habit, cleavage, luster, hardness), common crystal types, and gemstones found in the field.
+
 ## Identifiable Specimens
 
 Stone Snap can identify common igneous rocks (granite, basalt, obsidian, pumice), sedimentary rocks (limestone, sandstone, shale), metamorphic rocks (marble, slate, quartzite, gneiss), minerals (quartz, feldspar, mica, calcite, pyrite, amethyst, azurite), and crystals. Best results with clear, well-lit close-up photos showing surface texture and color.
