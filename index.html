@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -31,91 +31,74 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
 
-<!-- Preconnect hints -->
+<!-- Preconnect -->
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link rel="preconnect" href="https://lh3.googleusercontent.com"/>
 
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" crossorigin="anonymous"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" crossorigin="anonymous"/>
+
 <script src="/tailwind.js"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        'base': '#080808',
+        'surface': '#111111',
+        'surface-high': '#1a1a1a',
+        'surface-highest': '#222222',
+        'em': { 400: '#34d399', 500: '#10b981', 600: '#059669', 700: '#047857', 900: '#064e3b' },
+        'gold': { 400: '#fbbf24', 500: '#f59e0b' },
+      },
+      fontFamily: {
+        'display': ['"Young Serif"', 'Georgia', 'serif'],
+        'body': ['"Outfit"', 'system-ui', 'sans-serif'],
+      },
+    },
+  },
+}
+</script>
+
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+}
+.material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.card-glow {
+  border: 1px solid rgba(52,211,153,0.06);
+  transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+.card-glow:hover {
+  border-color: rgba(52,211,153,0.18);
+  box-shadow: 0 0 40px rgba(52,211,153,0.06);
+  transform: translateY(-3px);
+}
+.hero-glow {
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 0%, rgba(5,150,105,0.14) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 80% 20%, rgba(52,211,153,0.07) 0%, transparent 50%),
+    radial-gradient(ellipse 40% 30% at 10% 90%, rgba(245,158,11,0.04) 0%, transparent 50%);
+}
+details summary::-webkit-details-marker { display: none; }
+details[open] summary .chevron { transform: rotate(180deg); }
+.chevron { transition: transform 0.3s ease; }
+.gallery-item:hover .gallery-overlay { opacity: 1; }
+.gallery-item:hover img { transform: scale(1.06); }
+.gallery-item img { transition: transform 0.7s ease; }
+@keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+.float-slow { animation: float 6s ease-in-out infinite; }
+.float-delay { animation: float 6s ease-in-out 2s infinite; }
 </style>
-<script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              "tertiary-container": "#614200",
-              "on-error-container": "#93000a",
-              "on-error": "#ffffff",
-              "surface": "#fcf9f3",
-              "outline-variant": "#c1c8c1",
-              "inverse-primary": "#a9cfb7",
-              "surface-container-lowest": "#ffffff",
-              "primary-container": "#2d4f3c",
-              "inverse-on-surface": "#f3f0ea",
-              "secondary-fixed": "#cbe7f5",
-              "error": "#ba1a1a",
-              "primary": "#163826",
-              "secondary": "#48626e",
-              "on-primary-fixed-variant": "#2c4e3b",
-              "on-tertiary-fixed": "#281900",
-              "on-secondary-container": "#4e6874",
-              "tertiary-fixed": "#ffdeac",
-              "on-primary": "#ffffff",
-              "on-secondary-fixed-variant": "#304a55",
-              "secondary-fixed-dim": "#afcbd8",
-              "surface-tint": "#436651",
-              "on-primary-fixed": "#002112",
-              "on-secondary-fixed": "#021f29",
-              "surface-container": "#f0eee8",
-              "on-primary-container": "#9ac0a7",
-              "outline": "#727973",
-              "surface-container-high": "#ebe8e2",
-              "on-tertiary": "#ffffff",
-              "on-tertiary-fixed-variant": "#604100",
-              "on-background": "#1c1c18",
-              "secondary-container": "#cbe7f5",
-              "surface-bright": "#fcf9f3",
-              "on-surface": "#1c1c18",
-              "inverse-surface": "#31312d",
-              "on-tertiary-container": "#f1a900",
-              "surface-variant": "#e5e2dc",
-              "background": "#fcf9f3",
-              "tertiary-fixed-dim": "#ffba38",
-              "surface-container-highest": "#e5e2dc",
-              "on-surface-variant": "#424843",
-              "error-container": "#ffdad6",
-              "surface-dim": "#dcdad4",
-              "primary-fixed": "#c5ecd2",
-              "surface-container-low": "#f6f3ed",
-              "on-secondary": "#ffffff",
-              "primary-fixed-dim": "#a9cfb7",
-              "tertiary": "#442d00"
-            },
-            fontFamily: {
-              "headline": ["Space Grotesk"],
-              "body": ["Manrope"],
-              "label": ["Inter"]
-            },
-            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
-          },
-        },
-      }
-    </script>
-<style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        .mineral-gradient {
-            background: linear-gradient(135deg, #163826 0%, #2d4f3c 100%);
-        }
-        .ghost-border {
-            outline: 1px solid rgba(193, 200, 193, 0.15);
-        }
-    </style>
 
 <!-- Structured Data: Organization -->
 <script type="application/ld+json">
@@ -127,6 +110,13 @@
   "logo": "https://stonesnapapp.com/logo.png",
   "description": "Stone Snap is the best rock identifier app for Android. AI rock identification from photos — identify rocks, minerals, and crystals instantly. Free rock identifier powered by Google Gemini AI.",
   "email": "stonesnapapp@gmail.com",
+  "founder": {
+    "@type": "Person",
+    "name": "Luna",
+    "jobTitle": "Creator of Stone Snap",
+    "description": "Rock collector and geology enthusiast who built Stone Snap to bring AI-powered rock identification to every trail, classroom, and backyard.",
+    "image": "https://stonesnapapp.com/images/luna-trail.jpg"
+  },
   "sameAs": [
     "https://play.google.com/store/apps/details?id=com.stonesnap"
   ],
@@ -134,6 +124,24 @@
     "@type": "ContactPoint",
     "email": "stonesnapapp@gmail.com",
     "contactType": "customer support"
+  }
+}
+</script>
+
+<!-- Structured Data: Person (Luna) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Luna",
+  "jobTitle": "Creator of Stone Snap",
+  "description": "Rock collector and geology enthusiast who created Stone Snap, the AI-powered rock identifier app for Android.",
+  "image": "https://stonesnapapp.com/images/luna-trail.jpg",
+  "url": "https://stonesnapapp.com",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Stone Snap",
+    "url": "https://stonesnapapp.com"
   }
 }
 </script>
@@ -157,8 +165,8 @@
   "featureList": "AI Rock Identification, Rocky AI Chat, Personal Collection, Learning Hub with Quizzes and Flashcards, Magnetic Detector, Kid Mode",
   "downloadUrl": "https://play.google.com/store/apps/details?id=com.stonesnap",
   "author": {
-    "@type": "Organization",
-    "name": "Stone Snap",
+    "@type": "Person",
+    "name": "Luna",
     "url": "https://stonesnapapp.com"
   }
 }
@@ -171,7 +179,7 @@
   "@type": "WebSite",
   "name": "Stone Snap",
   "url": "https://stonesnapapp.com",
-  "description": "Official website for Stone Snap, the best rock identifier app for Android. AI rock identification from photos, mineral identifier, crystal identifier, and geology learning app."
+  "description": "Official website for Stone Snap, the best rock identifier app for Android. AI rock identification from photos, mineral identifier, crystal identifier, and geology learning app. Created by Luna."
 }
 </script>
 
@@ -182,7 +190,7 @@
   "@type": "WebPage",
   "name": "Stone Snap - Best Rock Identifier App for Android",
   "url": "https://stonesnapapp.com",
-  "description": "Stone Snap is the best rock identifier app for Android. AI rock identification from photos with chemical composition, Mohs hardness, and geological data. Free rock identifier app.",
+  "description": "Stone Snap is the best rock identifier app for Android. AI rock identification from photos with chemical composition, Mohs hardness, and geological data. Free rock identifier app created by Luna.",
   "speakable": {
     "@type": "SpeakableSpecification",
     "cssSelector": [
@@ -260,409 +268,487 @@
     },
     {
       "@type": "Question",
-      "name": "What is the magnetic detector feature?",
+      "name": "Who created Stone Snap?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Stone Snap's magnetic detector uses your phone's built-in magnetometer sensor to measure magnetic field strength near specimens. This helps identify iron-rich minerals like magnetite, hematite, and pyrrhotite in the field. The detector shows real-time magnetic field readings in microteslas."
+        "text": "Stone Snap was created by Luna, a lifelong rock collector and geology enthusiast. She built the app because she was tired of carrying field guides on hikes and wanted a tool that could identify specimens on the spot using AI. Stone Snap uses Google Gemini AI to power its rock identification engine."
       }
     }
   ]
 }
 </script>
-
 </head>
-<body class="bg-surface text-on-surface font-body selection:bg-tertiary-fixed selection:text-on-tertiary-fixed">
-<!-- Top Navigation Bar -->
-<nav class="bg-[#fcf9f3]/80 dark:bg-[#1c1c18]/80 backdrop-blur-md shadow-sm dark:shadow-none docked full-width top-0 z-50 sticky" aria-label="Main navigation">
-<div class="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
-<a href="/" class="text-2xl font-['Space_Grotesk'] font-bold tracking-tight text-[#163826] dark:text-[#fcf9f3]">
-                Stone Snap
-            </a>
-<div class="hidden md:flex items-center gap-8 font-['Space_Grotesk'] font-bold tracking-tight">
-<a class="text-[#48626e] dark:text-[#e5e2dc] hover:text-[#163826] dark:hover:text-[#fcf9f3] transition-colors" href="#features">Features</a>
-<a class="text-[#48626e] dark:text-[#e5e2dc] hover:text-[#163826] dark:hover:text-[#fcf9f3] transition-colors" href="#gallery">Gallery</a>
-<a class="text-[#48626e] dark:text-[#e5e2dc] hover:text-[#163826] dark:hover:text-[#fcf9f3] transition-colors" href="#faq">FAQ</a>
-<a class="text-[#48626e] dark:text-[#e5e2dc] hover:text-[#163826] dark:hover:text-[#fcf9f3] transition-colors" href="#about">About</a>
-<a class="text-[#48626e] dark:text-[#e5e2dc] hover:text-[#163826] dark:hover:text-[#fcf9f3] transition-colors" href="/blog/">Blog</a>
-<a href="https://play.google.com/store/apps/details?id=com.stonesnap" class="bg-primary text-on-primary px-6 py-2 rounded-lg hover:opacity-90 transition-all duration-200 scale-95 active:scale-90 font-label uppercase text-xs tracking-widest" rel="noopener" target="_blank">
-                    Download Now
-                </a>
-</div>
-<button id="mobile-menu-btn" class="md:hidden text-primary" aria-label="Open navigation menu" aria-expanded="false">
-<span class="material-symbols-outlined">menu</span>
-</button>
-</div>
-<!-- Mobile menu -->
-<div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-3 font-['Space_Grotesk'] font-bold">
-<a class="block text-[#48626e] hover:text-[#163826] transition-colors py-2" href="#features">Features</a>
-<a class="block text-[#48626e] hover:text-[#163826] transition-colors py-2" href="#gallery">Gallery</a>
-<a class="block text-[#48626e] hover:text-[#163826] transition-colors py-2" href="#faq">FAQ</a>
-<a class="block text-[#48626e] hover:text-[#163826] transition-colors py-2" href="#about">About</a>
-<a class="block text-[#48626e] hover:text-[#163826] transition-colors py-2" href="/blog/">Blog</a>
-<a href="https://play.google.com/store/apps/details?id=com.stonesnap" class="block bg-primary text-on-primary px-6 py-3 rounded-lg text-center font-label uppercase text-xs tracking-widest" rel="noopener" target="_blank">Download Now</a>
-</div>
+
+<body class="bg-base text-gray-300 font-body antialiased selection:bg-em-600/40 selection:text-white">
+
+<!-- ═══════════════════ NAV ═══════════════════ -->
+<nav class="fixed top-0 w-full z-50 bg-base/80 backdrop-blur-xl border-b border-white/[0.04]" aria-label="Main navigation">
+  <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+    <a href="/" class="text-2xl font-display text-white tracking-tight">Stone Snap</a>
+    <div class="hidden md:flex items-center gap-8">
+      <a class="text-sm font-body font-medium text-gray-400 hover:text-em-400 transition-colors" href="#features">Features</a>
+      <a class="text-sm font-body font-medium text-gray-400 hover:text-em-400 transition-colors" href="#gallery">Gallery</a>
+      <a class="text-sm font-body font-medium text-gray-400 hover:text-em-400 transition-colors" href="#faq">FAQ</a>
+      <a class="text-sm font-body font-medium text-gray-400 hover:text-em-400 transition-colors" href="#luna">About Luna</a>
+      <a class="text-sm font-body font-medium text-gray-400 hover:text-em-400 transition-colors" href="/blog/">Blog</a>
+      <a href="https://play.google.com/store/apps/details?id=com.stonesnap" class="bg-em-600 hover:bg-em-500 text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition-all" rel="noopener" target="_blank">
+        Download Free
+      </a>
+    </div>
+    <button id="mobile-menu-btn" class="md:hidden text-gray-400 hover:text-white" aria-label="Open navigation menu" aria-expanded="false">
+      <span class="material-symbols-outlined text-2xl">menu</span>
+    </button>
+  </div>
+  <div id="mobile-menu" class="hidden md:hidden px-6 pb-5 space-y-1 border-t border-white/[0.04]">
+    <a class="block text-gray-400 hover:text-em-400 py-3 text-sm font-medium" href="#features">Features</a>
+    <a class="block text-gray-400 hover:text-em-400 py-3 text-sm font-medium" href="#gallery">Gallery</a>
+    <a class="block text-gray-400 hover:text-em-400 py-3 text-sm font-medium" href="#faq">FAQ</a>
+    <a class="block text-gray-400 hover:text-em-400 py-3 text-sm font-medium" href="#luna">About Luna</a>
+    <a class="block text-gray-400 hover:text-em-400 py-3 text-sm font-medium" href="/blog/">Blog</a>
+    <a href="https://play.google.com/store/apps/details?id=com.stonesnap" class="block bg-em-600 text-white px-5 py-3 rounded-lg text-center text-sm font-semibold mt-2" rel="noopener" target="_blank">Download Free</a>
+  </div>
 </nav>
+
 <main>
-<!-- Hero Section -->
-<section class="relative min-h-[921px] flex items-center pt-20 px-6 overflow-hidden">
-<div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-<div class="lg:col-span-7 space-y-8 z-10">
-<span class="font-label text-xs uppercase tracking-[0.2em] text-secondary bg-surface-container-high px-3 py-1 rounded-full">#1 Rock Identifier App for Android</span>
-<h1 class="font-headline text-5xl md:text-7xl font-bold text-primary leading-[1.1] tracking-tight">
-                        AI Rock Identifier — Identify Any Rock From a <span class="italic font-light">Photo.</span>
-                    </h1>
-<p id="hero-description" class="text-lg md:text-xl text-secondary max-w-xl leading-relaxed">
-                        Stone Snap is the best rock identifier app for Android. Take a photo of any rock, mineral, or crystal and get instant AI rock identification — chemical composition, Mohs hardness, crystal system, formation history, and industrial uses. Powered by Google Gemini AI. Free rock identification app with 5 free scans.
-                    </p>
-<div class="flex flex-col sm:flex-row gap-4 pt-4">
-<a href="https://play.google.com/store/apps/details?id=com.stonesnap" class="mineral-gradient text-on-primary px-8 py-4 rounded-xl flex items-center justify-center gap-3 shadow-lg hover:brightness-105 transition-all" rel="noopener" target="_blank">
-<img alt="Google Play Store icon" class="h-6" width="24" height="24" src="https://lh3.googleusercontent.com/aida-public/AB6AXuClAOX1k9KeSqdw6yUPVRmMKTmBBnKyU47S3cEGj_QhNTIxNl_mf3YJ1Cv5fs09ES0UqJ87_ZKvu-F3OLzTR3JoEHf9OxfeVedz-iSlW7Ek18QwgsCHgOoIMPms6be8i4APxKt0ZDjlCm63KSB0zxzzYqYqSvZoZTjC8vkmOJEKMBTR7XMkIJmdlkPDy7-HwIozaGV0r62R66zsM6DCXyuvhowKDnO5Auq6RzfhGZK-EJaVySV9gUu1njZEyUkRLTGpLYnEMrI8PQ"/>
-<span class="font-label font-bold text-sm">GET IT ON GOOGLE PLAY</span>
-</a>
-<a href="#feature-grid" class="bg-surface-container-highest text-on-surface px-8 py-4 rounded-xl font-label font-bold text-sm hover:bg-surface-container-high transition-colors inline-block text-center">
-                            EXPLORE FEATURES
-                        </a>
-</div>
-</div>
-<div class="lg:col-span-5 relative">
-<div class="aspect-[4/5] bg-surface-container-low rounded-[2rem] overflow-hidden rotate-3 ghost-border shadow-2xl">
-<img class="w-full h-full object-cover grayscale-[20%] hover:scale-105 transition-transform duration-700" alt="Smartphone displaying Stone Snap app analyzing a crystalline mineral structure with AI scanning interface" width="600" height="750" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMqTHVX5fBXbHS9B69I74NlNPmHw0sAEOiM1ZwXkw7244T1oZ1D7VG0i_m--iyBtm4qnPBcEvVAGip15xpKsxTMyql5NQvFUsrWRVBlDPeyVGW2t_1XbLg5QSi3gp8Rtyu6lp4xIJFtpM7UaGCKzy24l-QOwylWZJt2RspTrIiAaUaLMRjcN_VV5s6UaZQsUY8Xnx5_c3QoVzRRoI04QFJWwm0n_qr5GdzIL13W4asQt9RXo8orW27hQfIAOAecJ91a03Ck-86Rw"/>
-</div>
-<div class="absolute -bottom-8 -left-8 bg-surface p-6 rounded-xl shadow-xl max-w-xs border border-outline-variant/10">
-<p class="font-label text-[10px] text-tertiary uppercase tracking-widest mb-2">Current Scan</p>
-<h4 class="font-headline text-lg font-bold text-primary mb-1">Amethyst Quartz</h4>
-<div class="flex items-center gap-2 text-secondary text-sm">
-<span class="material-symbols-outlined text-xs">location_on</span>
-<span>Rocky Mountains, CO</span>
-</div>
-</div>
-</div>
-</div>
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<section class="relative min-h-screen flex items-center pt-20 pb-16 px-6 overflow-hidden hero-glow">
+  <!-- Decorative orbs -->
+  <div class="absolute top-20 right-[15%] w-72 h-72 bg-em-500/10 rounded-full blur-[120px] float-slow"></div>
+  <div class="absolute bottom-20 left-[10%] w-56 h-56 bg-gold-500/8 rounded-full blur-[100px] float-delay"></div>
+
+  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center w-full">
+    <div class="lg:col-span-7 space-y-7 z-10">
+      <span class="inline-block text-xs font-semibold uppercase tracking-[0.2em] text-em-400 bg-em-400/10 px-4 py-1.5 rounded-full border border-em-400/15">#1 Rock Identifier for Android</span>
+      <h1 class="font-display text-5xl md:text-6xl lg:text-7xl text-white leading-[1.08] tracking-tight">
+        AI Rock Identifier&mdash;<br/>Identify Any Rock<br/>From a <span class="text-em-400">Photo.</span>
+      </h1>
+      <p id="hero-description" class="text-lg md:text-xl text-gray-400 max-w-xl leading-relaxed">
+        Point your camera at any rock, mineral, or crystal. Google Gemini AI returns the identification, chemical composition, Mohs hardness, crystal system, and formation history in seconds. Built by Luna, a rock collector who got tired of carrying field guides.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 pt-2">
+        <a href="https://play.google.com/store/apps/details?id=com.stonesnap" class="bg-em-600 hover:bg-em-500 text-white px-8 py-4 rounded-xl flex items-center justify-center gap-3 font-semibold text-sm transition-all shadow-lg shadow-em-600/20 hover:shadow-em-500/30" rel="noopener" target="_blank">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302-2.302 2.302L15.396 12l2.302-2.492zM5.864 2.658L16.8 8.99l-2.302 2.302L5.864 2.658z"/></svg>
+          GET IT ON GOOGLE PLAY
+        </a>
+        <a href="#features" class="bg-white/[0.05] hover:bg-white/[0.08] text-gray-300 px-8 py-4 rounded-xl font-semibold text-sm text-center transition-all border border-white/[0.06]">
+          EXPLORE FEATURES
+        </a>
+      </div>
+    </div>
+    <div class="lg:col-span-5 relative">
+      <div class="aspect-[4/5] rounded-[2rem] overflow-hidden border border-white/[0.06] shadow-2xl shadow-black/50 rotate-2 hover:rotate-0 transition-transform duration-700">
+        <img class="w-full h-full object-cover" alt="Smartphone displaying Stone Snap app analyzing a crystalline mineral structure with AI scanning interface" width="600" height="750" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMqTHVX5fBXbHS9B69I74NlNPmHw0sAEOiM1ZwXkw7244T1oZ1D7VG0i_m--iyBtm4qnPBcEvVAGip15xpKsxTMyql5NQvFUsrWRVBlDPeyVGW2t_1XbLg5QSi3gp8Rtyu6lp4xIJFtpM7UaGCKzy24l-QOwylWZJt2RspTrIiAaUaLMRjcN_VV5s6UaZQsUY8Xnx5_c3QoVzRRoI04QFJWwm0n_qr5GdzIL13W4asQt9RXo8orW27hQfIAOAecJ91a03Ck-86Rw"/>
+      </div>
+      <div class="absolute -bottom-6 -left-6 bg-surface p-5 rounded-xl shadow-xl border border-white/[0.06] max-w-[220px]">
+        <p class="text-[10px] text-em-400 uppercase tracking-[0.2em] font-semibold mb-1">Current Scan</p>
+        <h4 class="font-display text-lg text-white mb-1">Amethyst Quartz</h4>
+        <div class="flex items-center gap-1.5 text-gray-500 text-xs">
+          <span class="material-symbols-outlined text-xs">location_on</span>
+          <span>Rocky Mountains, CO</span>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- How It Works -->
-<section class="py-24 bg-surface-container-low" id="features">
-<div class="max-w-7xl mx-auto px-6">
-<div class="mb-16" id="how-it-works">
-<h2 class="font-headline text-3xl md:text-5xl font-bold text-primary mb-4 text-center">How the AI Rock Identifier Works</h2>
-<p class="text-secondary text-center max-w-2xl mx-auto">Stone Snap's rock identification AI uses Google Gemini to identify rocks from photos in three steps. Point, snap, and get your rock identity in seconds. No geology degree required.</p>
-<div class="w-24 h-1 bg-tertiary-fixed-dim mx-auto mt-4"></div>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
-<!-- Progress Line (Desktop) -->
-<div class="hidden md:block absolute top-12 left-0 w-full h-1 bg-outline-variant/20 z-0"></div>
-<div class="relative z-10 space-y-6 text-center group">
-<div class="w-24 h-24 mineral-gradient rounded-full mx-auto flex items-center justify-center text-on-primary shadow-lg group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-4xl">photo_camera</span>
-</div>
-<h3 class="font-headline text-2xl font-bold text-primary">1. Capture</h3>
-<p class="text-secondary leading-relaxed">Take a clear photo of any rock, mineral, or crystal. The app works best with natural lighting and a close-up shot that shows surface texture and color.</p>
-</div>
-<div class="relative z-10 space-y-6 text-center group">
-<div class="w-24 h-24 bg-tertiary-fixed-dim rounded-full mx-auto flex items-center justify-center text-on-tertiary-fixed shadow-lg group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-4xl" data-weight="fill">query_stats</span>
-</div>
-<h3 class="font-headline text-2xl font-bold text-primary">2. Identify</h3>
-<p class="text-secondary leading-relaxed">Google Gemini AI analyzes the photo and cross-references visual traits (color, luster, crystal structure, texture) to return an identification with chemical formula, Mohs hardness, and geological classification.</p>
-</div>
-<div class="relative z-10 space-y-6 text-center group">
-<div class="w-24 h-24 mineral-gradient rounded-full mx-auto flex items-center justify-center text-on-primary shadow-lg group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-4xl">menu_book</span>
-</div>
-<h3 class="font-headline text-2xl font-bold text-primary">3. Learn</h3>
-<p class="text-secondary leading-relaxed">Read detailed geological data including chemical composition, formation history, common locations, and industrial applications. Save the specimen to your personal collection with GPS coordinates.</p>
-</div>
-</div>
-</div>
+<!-- ═══════════════════ HOW IT WORKS ═══════════════════ -->
+<section class="py-24 bg-surface" id="how-it-works">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16 reveal">
+      <span class="text-xs font-semibold uppercase tracking-[0.2em] text-em-400">3 Simple Steps</span>
+      <h2 class="font-display text-3xl md:text-5xl text-white mt-3 mb-4">How the AI Rock Identifier Works</h2>
+      <p class="text-gray-400 max-w-2xl mx-auto">Stone Snap uses Google Gemini AI to identify rocks from photos. Point, snap, and get your rock identity in seconds.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 relative">
+      <div class="hidden md:block absolute top-14 left-[16%] right-[16%] h-px bg-gradient-to-r from-transparent via-em-400/20 to-transparent"></div>
+      <div class="reveal text-center space-y-5 group">
+        <div class="w-28 h-28 bg-em-600/15 border border-em-400/15 rounded-2xl mx-auto flex items-center justify-center group-hover:bg-em-600/25 group-hover:scale-105 transition-all">
+          <span class="material-symbols-outlined text-em-400 text-4xl">photo_camera</span>
+        </div>
+        <h3 class="font-display text-xl text-white">1. Capture</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">Take a clear photo of any rock, mineral, or crystal. Works best with natural lighting and a close-up showing surface texture and color.</p>
+      </div>
+      <div class="reveal text-center space-y-5 group" style="transition-delay:0.1s">
+        <div class="w-28 h-28 bg-gold-500/10 border border-gold-500/15 rounded-2xl mx-auto flex items-center justify-center group-hover:bg-gold-500/20 group-hover:scale-105 transition-all">
+          <span class="material-symbols-outlined text-gold-400 text-4xl">query_stats</span>
+        </div>
+        <h3 class="font-display text-xl text-white">2. Identify</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">Google Gemini AI analyzes the photo, cross-referencing color, luster, crystal structure, and texture to return chemical formula, Mohs hardness, and classification.</p>
+      </div>
+      <div class="reveal text-center space-y-5 group" style="transition-delay:0.2s">
+        <div class="w-28 h-28 bg-em-600/15 border border-em-400/15 rounded-2xl mx-auto flex items-center justify-center group-hover:bg-em-600/25 group-hover:scale-105 transition-all">
+          <span class="material-symbols-outlined text-em-400 text-4xl">menu_book</span>
+        </div>
+        <h3 class="font-display text-xl text-white">3. Learn</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">Read detailed geological data: chemical composition, formation history, locations, and industrial uses. Save specimens to your collection with GPS coordinates.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- Feature Grid -->
-<section class="py-24" id="feature-grid">
-<div class="max-w-7xl mx-auto px-6">
-<div class="mb-16 text-center">
-<span class="font-label text-xs uppercase tracking-widest text-secondary">Rock Identifier App Features</span>
-<h2 class="font-headline text-3xl md:text-5xl font-bold text-primary mt-2 mb-4">The Complete Rock Identification App for Android</h2>
-<div class="w-24 h-1 bg-tertiary-fixed-dim mx-auto"></div>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-<div class="bg-surface-container-low p-8 rounded-2xl hover:shadow-lg transition-shadow group">
-<div class="w-14 h-14 mineral-gradient rounded-xl flex items-center justify-center text-on-primary mb-5 group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-2xl">camera</span>
-</div>
-<h3 class="font-headline text-lg font-bold text-primary mb-2">AI Rock Identifier</h3>
-<p class="text-secondary text-sm leading-relaxed">Point your camera at any rock, mineral, or crystal for instant rock identification. The AI rock identifier uses Google Gemini to return chemical formula, Mohs hardness rating, crystal system, and geological classification from a single photo.</p>
-</div>
-<div class="bg-surface-container-low p-8 rounded-2xl hover:shadow-lg transition-shadow group">
-<div class="w-14 h-14 bg-tertiary-fixed-dim rounded-xl flex items-center justify-center text-on-tertiary-fixed mb-5 group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-2xl">chat</span>
-</div>
-<h3 class="font-headline text-lg font-bold text-primary mb-2">Rocky AI Chat</h3>
-<p class="text-secondary text-sm leading-relaxed">Ask Rocky anything about geology. Your AI guide answers questions about rocks, minerals, geological formations, the Mohs scale, crystal systems, and earth science topics.</p>
-</div>
-<div class="bg-surface-container-low p-8 rounded-2xl hover:shadow-lg transition-shadow group">
-<div class="w-14 h-14 mineral-gradient rounded-xl flex items-center justify-center text-on-primary mb-5 group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-2xl">folder_special</span>
-</div>
-<h3 class="font-headline text-lg font-bold text-primary mb-2">Personal Collection</h3>
-<p class="text-secondary text-sm leading-relaxed">Save every find to your digital rock collection. Each entry includes the identification, photo, GPS coordinates, date found, and full geological properties. All data stored locally on your device.</p>
-</div>
-<div class="bg-surface-container-low p-8 rounded-2xl hover:shadow-lg transition-shadow group">
-<div class="w-14 h-14 bg-tertiary-fixed-dim rounded-xl flex items-center justify-center text-on-tertiary-fixed mb-5 group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-2xl">school</span>
-</div>
-<h3 class="font-headline text-lg font-bold text-primary mb-2">Learning Hub</h3>
-<p class="text-secondary text-sm leading-relaxed">Interactive quizzes, flashcards, and structured mineralogy lessons. Earn XP, track your progress, and level up your geology knowledge from beginner to expert.</p>
-</div>
-<div class="bg-surface-container-low p-8 rounded-2xl hover:shadow-lg transition-shadow group">
-<div class="w-14 h-14 mineral-gradient rounded-xl flex items-center justify-center text-on-primary mb-5 group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-2xl">explore</span>
-</div>
-<h3 class="font-headline text-lg font-bold text-primary mb-2">Magnetic Detector</h3>
-<p class="text-secondary text-sm leading-relaxed">Uses your phone's magnetometer to measure magnetic field strength in microteslas. Helps identify iron-rich minerals like magnetite, hematite, and pyrrhotite in the field.</p>
-</div>
-<div class="bg-surface-container-low p-8 rounded-2xl hover:shadow-lg transition-shadow group">
-<div class="w-14 h-14 bg-tertiary-fixed-dim rounded-xl flex items-center justify-center text-on-tertiary-fixed mb-5 group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-2xl">child_care</span>
-</div>
-<h3 class="font-headline text-lg font-bold text-primary mb-2">Kid Mode</h3>
-<p class="text-secondary text-sm leading-relaxed">A simplified interface for young explorers with kid-friendly language and colorful visuals. No account required, no data collection. Makes geology accessible for children of all ages.</p>
-</div>
-</div>
-</div>
+<!-- ═══════════════════ FEATURES ═══════════════════ -->
+<section class="py-24" id="features">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16 reveal">
+      <span class="text-xs font-semibold uppercase tracking-[0.2em] text-em-400">App Features</span>
+      <h2 class="font-display text-3xl md:text-5xl text-white mt-3 mb-4">The Complete Rock Identification App</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="reveal bg-surface rounded-2xl p-8 card-glow group">
+        <div class="w-12 h-12 bg-em-600/15 rounded-xl flex items-center justify-center mb-5 group-hover:bg-em-600/25 transition-colors">
+          <span class="material-symbols-outlined text-em-400 text-xl">camera</span>
+        </div>
+        <h3 class="font-display text-lg text-white mb-2">AI Rock Identifier</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">Point your camera at any rock, mineral, or crystal for instant identification. Returns chemical formula, Mohs hardness, crystal system, and geological classification from a single photo.</p>
+      </div>
+      <div class="reveal bg-surface rounded-2xl p-8 card-glow group" style="transition-delay:0.05s">
+        <div class="w-12 h-12 bg-gold-500/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-gold-500/20 transition-colors">
+          <span class="material-symbols-outlined text-gold-400 text-xl">chat</span>
+        </div>
+        <h3 class="font-display text-lg text-white mb-2">Rocky AI Chat</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">Ask Rocky anything about geology. Your AI guide answers questions about rocks, minerals, geological formations, the Mohs scale, crystal systems, and earth science.</p>
+      </div>
+      <div class="reveal bg-surface rounded-2xl p-8 card-glow group" style="transition-delay:0.1s">
+        <div class="w-12 h-12 bg-em-600/15 rounded-xl flex items-center justify-center mb-5 group-hover:bg-em-600/25 transition-colors">
+          <span class="material-symbols-outlined text-em-400 text-xl">folder_special</span>
+        </div>
+        <h3 class="font-display text-lg text-white mb-2">Personal Collection</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">Save every find to your digital rock collection. Each entry includes identification, photo, GPS coordinates, date, and full geological properties. All data stored on your device.</p>
+      </div>
+      <div class="reveal bg-surface rounded-2xl p-8 card-glow group" style="transition-delay:0.15s">
+        <div class="w-12 h-12 bg-gold-500/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-gold-500/20 transition-colors">
+          <span class="material-symbols-outlined text-gold-400 text-xl">school</span>
+        </div>
+        <h3 class="font-display text-lg text-white mb-2">Learning Hub</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">Interactive quizzes, flashcards, and structured mineralogy lessons. Earn XP, track progress, and level up your geology knowledge from beginner to expert.</p>
+      </div>
+      <div class="reveal bg-surface rounded-2xl p-8 card-glow group" style="transition-delay:0.2s">
+        <div class="w-12 h-12 bg-em-600/15 rounded-xl flex items-center justify-center mb-5 group-hover:bg-em-600/25 transition-colors">
+          <span class="material-symbols-outlined text-em-400 text-xl">explore</span>
+        </div>
+        <h3 class="font-display text-lg text-white mb-2">Magnetic Detector</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">Uses your phone's magnetometer to measure magnetic field strength in microteslas. Helps identify iron-rich minerals like magnetite, hematite, and pyrrhotite in the field.</p>
+      </div>
+      <div class="reveal bg-surface rounded-2xl p-8 card-glow group" style="transition-delay:0.25s">
+        <div class="w-12 h-12 bg-gold-500/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-gold-500/20 transition-colors">
+          <span class="material-symbols-outlined text-gold-400 text-xl">child_care</span>
+        </div>
+        <h3 class="font-display text-lg text-white mb-2">Kid Mode</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">Simplified interface for young explorers with kid-friendly language and colorful visuals. No account required, no data collection. Makes geology accessible for all ages.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- Mineral Gallery -->
-<section class="py-24 overflow-hidden" id="gallery">
-<div class="max-w-7xl mx-auto px-6">
-<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-<div class="max-w-xl">
-<span class="font-label text-xs uppercase tracking-widest text-secondary">Specimen Gallery</span>
-<h2 class="font-headline text-4xl font-bold text-primary mt-2">Rocks and Minerals Our Rock Identifier Can Identify</h2>
-</div>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-[300px]">
-<div class="md:col-span-2 md:row-span-2 relative group overflow-hidden rounded-xl bg-surface-container">
-<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Vibrant blue azurite mineral cluster with crystalline formations, a copper carbonate mineral identified by Stone Snap" width="600" height="600" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPsLqtQ24XvCnN0G7dhFTsQkJG9YQfnCxjDeI7-EglTyB-rBjxSg6N2xmgz01bDvxdND4XrHm-2mU3FmDXNJSl5gcLdBAFTh0A5YWnm6bIAQucUtV7Hj7F5g_kpcJ8Nc8g003aXxe21xZ8TZMwE-UELyu_F2TVCJ6kBEBjMO7V9W7dY1-THhGLgk9qJuSY4_Q6uLmB-bwW8gxC5I401Gy2FA7LSF2apgh_f0LYuoW-6hAhPdvWlVWz4Pw4B3QyADt-4fi3GdJr7Q"/>
-<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex flex-col justify-end p-8 opacity-0 group-hover:opacity-100 transition-opacity">
-<h4 class="text-on-primary font-headline text-2xl font-bold">Azurite</h4>
-<p class="text-on-primary/80 font-label text-xs uppercase tracking-widest">Copper Carbonate Mineral &middot; Cu&#8323;(CO&#8323;)&#8322;(OH)&#8322;</p>
-</div>
-</div>
-<div class="md:col-span-2 relative group overflow-hidden rounded-xl bg-surface-container">
-<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Raw pyrite cubic crystal with metallic golden sheen in natural stone matrix, also known as Fool's Gold" width="600" height="300" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCItZBUf8kM8p4sRBr_ba2EIWHgqyUmPlRUutS2n8CF5szwzNQSXhmP7-dkuAYj41QYp_T01AmKBO0DZ4YIrh4z_JzbdNNy7VwAkWXS7gKFBl3QJjY6oow9soEGPNftFUwxQJ8nPX7oBeIepqLATvi6VusgvGqTx1W0Hyvb_jKbdM1_ipKkqzj3VEfbMdZ0UkELbMPsOOt__RdbKFuyA66gv8Y9wSZns-zBZIFXZAfZ-lcaBNfjFJcrmotKRl6co3BAV5NbhqpRtg"/>
-<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity">
-<h4 class="text-on-primary font-headline text-xl font-bold">Pyrite (Fool's Gold)</h4>
-<p class="text-on-primary/80 font-label text-xs uppercase tracking-widest">Iron Sulfide &middot; FeS&#8322;</p>
-</div>
-</div>
-<div class="relative group overflow-hidden rounded-xl bg-surface-container">
-<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Polished agate slice showing concentric rings of brown, cream, and translucent grey banding patterns" width="300" height="300" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAn5JiHVZKnYsUQXuAKMMfbfLTyZnBsiRU-NfuSMwyUZpPyWNULTqMnbQqIiE_5vOlhDyz5e9xQgELhBHzTqxHmOcl4DHXHRXkGZvre0qNl_ewoNunM2MOQLeF_LU68oaogSdubeaNyBS7CjRwaYmI_5dIzaDYa2XErc3a0sZgNwNBFEsIZBzu6qe7mvViv9faxiAKcITuHS4Io_6JRfNb9dV-AK8rvW4dHhEou2UsBfsaRlcsREy1uaYSvJZ6dSd7h-S3fSxC1lA"/>
-<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity">
-<h4 class="text-on-primary font-headline text-lg font-bold">Agate</h4>
-<p class="text-on-primary/80 font-label text-xs uppercase tracking-widest">Chalcedony Quartz &middot; SiO&#8322;</p>
-</div>
-</div>
-<div class="relative group overflow-hidden rounded-xl bg-surface-container">
-<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Dark volcanic obsidian rock fragment with sharp conchoidal fracture edges and glassy reflective surface" width="300" height="300" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDALY8mTrKzwkf6QRaz9kWxjRQBSLM4-7FDozHb51Rktm_K-CsKqe3EYvO2-2nvNKFZz0pP7g6GbCzrCRJRJTbQ7FT4dq-zYR_IYUVE2CHIydeOW6Z208EkNAoNB59bnKs5KnugJlaAMatGm7OQMZgGg8chtYXiuRnjaoeZqy8qlO0XYPbTg1MbXTuygh2oFwvmhkYNY4Q6GBDUb9Tvq_YOS_bBC0BKdblehoDfSkwH2PiMi6-eQyT2Ax-pnl-r6XJICACiRQidAA"/>
-<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity">
-<h4 class="text-on-primary font-headline text-lg font-bold">Obsidian</h4>
-<p class="text-on-primary/80 font-label text-xs uppercase tracking-widest">Volcanic Glass &middot; SiO&#8322;</p>
-</div>
-</div>
-</div>
-</div>
+<!-- ═══════════════════ GALLERY ═══════════════════ -->
+<section class="py-24 bg-surface overflow-hidden" id="gallery">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="mb-16 reveal">
+      <span class="text-xs font-semibold uppercase tracking-[0.2em] text-em-400">Specimen Gallery</span>
+      <h2 class="font-display text-3xl md:text-4xl text-white mt-3">A Few of the Thousands of Specimens We Identify</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[280px]">
+      <div class="reveal md:col-span-2 md:row-span-2 relative gallery-item overflow-hidden rounded-2xl bg-surface-high cursor-pointer">
+        <img class="w-full h-full object-cover" alt="Vibrant blue azurite mineral cluster with crystalline formations, a copper carbonate mineral identified by Stone Snap" width="600" height="600" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPsLqtQ24XvCnN0G7dhFTsQkJG9YQfnCxjDeI7-EglTyB-rBjxSg6N2xmgz01bDvxdND4XrHm-2mU3FmDXNJSl5gcLdBAFTh0A5YWnm6bIAQucUtV7Hj7F5g_kpcJ8Nc8g003aXxe21xZ8TZMwE-UELyu_F2TVCJ6kBEBjMO7V9W7dY1-THhGLgk9qJuSY4_Q6uLmB-bwW8gxC5I401Gy2FA7LSF2apgh_f0LYuoW-6hAhPdvWlVWz4Pw4B3QyADt-4fi3GdJr7Q"/>
+        <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8 opacity-0 transition-opacity duration-500">
+          <h4 class="text-white font-display text-2xl">Azurite</h4>
+          <p class="text-em-400 text-xs uppercase tracking-[0.15em] font-semibold mt-1">Copper Carbonate &middot; Cu&#8323;(CO&#8323;)&#8322;(OH)&#8322;</p>
+        </div>
+      </div>
+      <div class="reveal md:col-span-2 relative gallery-item overflow-hidden rounded-2xl bg-surface-high cursor-pointer" style="transition-delay:0.1s">
+        <img class="w-full h-full object-cover" alt="Raw pyrite cubic crystal with metallic golden sheen in natural stone matrix, also known as Fool's Gold" width="600" height="300" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCItZBUf8kM8p4sRBr_ba2EIWHgqyUmPlRUutS2n8CF5szwzNQSXhmP7-dkuAYj41QYp_T01AmKBO0DZ4YIrh4z_JzbdNNy7VwAkWXS7gKFBl3QJjY6oow9soEGPNftFUwxQJ8nPX7oBeIepqLATvi6VusgvGqTx1W0Hyvb_jKbdM1_ipKkqzj3VEfbMdZ0UkELbMPsOOt__RdbKFuyA66gv8Y9wSZns-zBZIFXZAfZ-lcaBNfjFJcrmotKRl6co3BAV5NbhqpRtg"/>
+        <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6 opacity-0 transition-opacity duration-500">
+          <h4 class="text-white font-display text-xl">Pyrite (Fool's Gold)</h4>
+          <p class="text-gold-400 text-xs uppercase tracking-[0.15em] font-semibold mt-1">Iron Sulfide &middot; FeS&#8322;</p>
+        </div>
+      </div>
+      <div class="reveal relative gallery-item overflow-hidden rounded-2xl bg-surface-high cursor-pointer" style="transition-delay:0.15s">
+        <img class="w-full h-full object-cover" alt="Polished agate slice showing concentric rings of brown, cream, and translucent grey banding patterns" width="300" height="300" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAn5JiHVZKnYsUQXuAKMMfbfLTyZnBsiRU-NfuSMwyUZpPyWNULTqMnbQqIiE_5vOlhDyz5e9xQgELhBHzTqxHmOcl4DHXHRXkGZvre0qNl_ewoNunM2MOQLeF_LU68oaogSdubeaNyBS7CjRwaYmI_5dIzaDYa2XErc3a0sZgNwNBFEsIZBzu6qe7mvViv9faxiAKcITuHS4Io_6JRfNb9dV-AK8rvW4dHhEou2UsBfsaRlcsREy1uaYSvJZ6dSd7h-S3fSxC1lA"/>
+        <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6 opacity-0 transition-opacity duration-500">
+          <h4 class="text-white font-display text-lg">Agate</h4>
+          <p class="text-em-400 text-xs uppercase tracking-[0.15em] font-semibold mt-1">Chalcedony Quartz &middot; SiO&#8322;</p>
+        </div>
+      </div>
+      <div class="reveal relative gallery-item overflow-hidden rounded-2xl bg-surface-high cursor-pointer" style="transition-delay:0.2s">
+        <img class="w-full h-full object-cover" alt="Dark volcanic obsidian rock fragment with sharp conchoidal fracture edges and glassy reflective surface" width="300" height="300" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDALY8mTrKzwkf6QRaz9kWxjRQBSLM4-7FDozHb51Rktm_K-CsKqe3EYvO2-2nvNKFZz0pP7g6GbCzrCRJRJTbQ7FT4dq-zYR_IYUVE2CHIydeOW6Z208EkNAoNB59bnKs5KnugJlaAMatGm7OQMZgGg8chtYXiuRnjaoeZqy8qlO0XYPbTg1MbXTuygh2oFwvmhkYNY4Q6GBDUb9Tvq_YOS_bBC0BKdblehoDfSkwH2PiMi6-eQyT2Ax-pnl-r6XJICACiRQidAA"/>
+        <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6 opacity-0 transition-opacity duration-500">
+          <h4 class="text-white font-display text-lg">Obsidian</h4>
+          <p class="text-em-400 text-xs uppercase tracking-[0.15em] font-semibold mt-1">Volcanic Glass &middot; SiO&#8322;</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- FAQ Section -->
-<section class="py-24 bg-surface-container-low" id="faq">
-<div class="max-w-3xl mx-auto px-6">
-<div class="mb-16 text-center">
-<span class="font-label text-xs uppercase tracking-widest text-secondary">Common Questions</span>
-<h2 class="font-headline text-3xl md:text-5xl font-bold text-primary mt-2 mb-4">Frequently Asked Questions</h2>
-<div class="w-24 h-1 bg-tertiary-fixed-dim mx-auto"></div>
-</div>
-<div class="space-y-6">
-<details class="bg-surface p-6 rounded-2xl shadow-sm group" open>
-<summary class="font-headline font-bold text-primary cursor-pointer list-none flex justify-between items-center">
-<h3 class="text-lg">How does Stone Snap identify rocks and minerals?</h3>
-<span class="material-symbols-outlined text-secondary group-open:rotate-180 transition-transform">expand_more</span>
-</summary>
-<p class="text-secondary mt-4 leading-relaxed">Stone Snap uses Google Gemini AI to analyze photos of rocks, minerals, and crystals. When you take a photo, the image is sent to Google's Gemini model which cross-references visual traits like color, luster, crystal structure, and texture against known geological specimens. The AI returns an identification along with chemical composition, Mohs hardness rating, formation history, and common uses.</p>
-</details>
-<details class="bg-surface p-6 rounded-2xl shadow-sm group">
-<summary class="font-headline font-bold text-primary cursor-pointer list-none flex justify-between items-center">
-<h3 class="text-lg">What rocks, minerals, and crystals can Stone Snap identify?</h3>
-<span class="material-symbols-outlined text-secondary group-open:rotate-180 transition-transform">expand_more</span>
-</summary>
-<p class="text-secondary mt-4 leading-relaxed">Stone Snap can identify common igneous rocks (granite, basalt, obsidian, pumice), sedimentary rocks (limestone, sandstone, shale), metamorphic rocks (marble, slate, quartzite, gneiss), minerals (quartz, feldspar, mica, calcite, pyrite, amethyst, azurite), and crystals. The AI performs best with clear, well-lit photos showing the specimen's surface texture and color.</p>
-</details>
-<details class="bg-surface p-6 rounded-2xl shadow-sm group">
-<summary class="font-headline font-bold text-primary cursor-pointer list-none flex justify-between items-center">
-<h3 class="text-lg">Is Stone Snap free to use?</h3>
-<span class="material-symbols-outlined text-secondary group-open:rotate-180 transition-transform">expand_more</span>
-</summary>
-<p class="text-secondary mt-4 leading-relaxed">Stone Snap is free to download on Android with 5 free rock identifications. After that, Stone Snap Pro is available for $4.99 per month with a 3-day free trial. Pro unlocks unlimited identifications, full access to Rocky AI Chat, the complete Learning Hub with quizzes and flashcards, and all premium features.</p>
-</details>
-<details class="bg-surface p-6 rounded-2xl shadow-sm group">
-<summary class="font-headline font-bold text-primary cursor-pointer list-none flex justify-between items-center">
-<h3 class="text-lg">Does Stone Snap work offline?</h3>
-<span class="material-symbols-outlined text-secondary group-open:rotate-180 transition-transform">expand_more</span>
-</summary>
-<p class="text-secondary mt-4 leading-relaxed">Rock identification requires an internet connection because photos are processed by Google Gemini AI on Google's servers. However, your personal rock collection, identification history, quiz scores, and learning progress are all stored locally on your device and accessible offline.</p>
-</details>
-<details class="bg-surface p-6 rounded-2xl shadow-sm group">
-<summary class="font-headline font-bold text-primary cursor-pointer list-none flex justify-between items-center">
-<h3 class="text-lg">Is Stone Snap safe for kids?</h3>
-<span class="material-symbols-outlined text-secondary group-open:rotate-180 transition-transform">expand_more</span>
-</summary>
-<p class="text-secondary mt-4 leading-relaxed">Yes. Stone Snap includes a dedicated Kid Mode with simplified language, colorful visuals, and a fun interface designed for young explorers. The app does not require account creation, does not collect personally identifiable information from children, and all data is stored locally on the device.</p>
-</details>
-<details class="bg-surface p-6 rounded-2xl shadow-sm group">
-<summary class="font-headline font-bold text-primary cursor-pointer list-none flex justify-between items-center">
-<h3 class="text-lg">What is the magnetic detector feature?</h3>
-<span class="material-symbols-outlined text-secondary group-open:rotate-180 transition-transform">expand_more</span>
-</summary>
-<p class="text-secondary mt-4 leading-relaxed">Stone Snap's magnetic detector uses your phone's built-in magnetometer sensor to measure magnetic field strength near specimens. This helps identify iron-rich minerals like magnetite, hematite, and pyrrhotite in the field. The detector shows real-time magnetic field readings in microteslas.</p>
-</details>
-</div>
-</div>
+<!-- ═══════════════════ LUNA'S PICK ═══════════════════ -->
+<section class="py-16">
+  <div class="max-w-4xl mx-auto px-6 reveal">
+    <div class="bg-surface-high rounded-2xl p-8 md:p-10 border border-white/[0.06] flex flex-col md:flex-row items-center gap-8">
+      <div class="flex-shrink-0">
+        <div class="w-16 h-16 bg-gold-500/10 rounded-2xl flex items-center justify-center border border-gold-500/15">
+          <span class="material-symbols-outlined text-gold-400 text-3xl">diamond</span>
+        </div>
+      </div>
+      <div class="flex-1 text-center md:text-left">
+        <span class="text-[10px] font-semibold uppercase tracking-[0.2em] text-gold-400">Luna's Pick</span>
+        <h3 class="font-display text-xl text-white mt-1 mb-2">Rock Tumbler Kit</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">Identify your rocks with Stone Snap, then polish them. Luna's recommended starter tumbler kit for turning rough specimens into polished stones.</p>
+      </div>
+      <a href="https://amzn.to/4c2LIZG" class="flex-shrink-0 bg-gold-500 hover:bg-gold-400 text-base px-6 py-3 rounded-xl font-semibold text-sm transition-all whitespace-nowrap" rel="noopener sponsored" target="_blank">
+        View on Amazon
+      </a>
+    </div>
+  </div>
 </section>
 
-<!-- Testimonials -->
-<section class="py-24 bg-[#163826] text-on-primary">
-<div class="max-w-7xl mx-auto px-6">
-<div class="mb-16">
-<h2 class="font-headline text-3xl font-bold">What Users Are Saying</h2>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-<div class="bg-primary-container p-8 rounded-2xl space-y-4">
-<div class="flex text-tertiary-fixed">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-</div>
-<p class="italic text-on-primary-container leading-relaxed">"As an avid hiker, Stone Snap has turned every trail into a learning experience. The accuracy even in low-light conditions is remarkable."</p>
-<div class="flex items-center gap-4 pt-4 border-t border-on-primary-container/10">
-<div class="w-10 h-10 rounded-full bg-surface-container overflow-hidden">
-<img class="w-full h-full object-cover" alt="Marcus Thorne, adventure blogger and Stone Snap user" width="40" height="40" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3vmoX5cju17_o-sJdzwtvaKwzUmMTdvFUNSodd8cPu7GKQHorZUrPz63z4rZ_0xi4vmIzwiUP6Kz1uoaSDJu14h9LNXSPKXRUCCzyVE3oWqIoYMzessXpS02hdClPlnOeZCDL-RlBo6r7dgs6eDvYDAy2Rl7nJXxjxtcLsIqRVgKAFEucgxDTjKE-2JQ4LEE_917J0ACZD8vF37JRdbesteMZo6Tmp1AFCr8GRwP0UCBfOvjxsK8B8yAUw_3enXIaiPPqcGQ0DQ"/>
-</div>
-<div>
-<p class="font-bold text-sm">Marcus T.</p>
-<p class="text-[10px] uppercase tracking-widest opacity-60">Hiker &amp; Outdoor Enthusiast</p>
-</div>
-</div>
-</div>
-<div class="bg-primary-container p-8 rounded-2xl space-y-4 md:mt-12">
-<div class="flex text-tertiary-fixed">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star_half</span>
-</div>
-<p class="italic text-on-primary-container leading-relaxed">"The geological data goes deep. Chemical breakdowns I'd normally need a lab manual for. I use it regularly during field work for quick reference."</p>
-<div class="flex items-center gap-4 pt-4 border-t border-on-primary-container/10">
-<div class="w-10 h-10 rounded-full bg-surface-container overflow-hidden">
-<img class="w-full h-full object-cover" alt="Sarah J., geology student and Stone Snap user" width="40" height="40" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBF8-zsORO0kWhlqe8pc4AEBa2Vud-b8d4Msbv4v-OI-b9b3ErwEAN98CcxqVoyWl3_YJIo_GkuCOKIy4r-_8AtM28nPGrs7eNwcB43WwivcUFh25JSqosS6Um3o_o8MWRMrBUp6Myh2d7NTvGkaKbhlpKKls5r9l9cGJUbZT7zU16QgknYG8m8Nq3RskcJ6K1831eN5Slz-vkJlbnRUq2fJMuDn4j9184DDrD2aLFE6Efe5wPOHH9JizchVC8n89hTNr4irAcWug"/>
-</div>
-<div>
-<p class="font-bold text-sm">Sarah J.</p>
-<p class="text-[10px] uppercase tracking-widest opacity-60">Geology Student</p>
-</div>
-</div>
-</div>
-<div class="bg-primary-container p-8 rounded-2xl space-y-4">
-<div class="flex text-tertiary-fixed">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-</div>
-<p class="italic text-on-primary-container leading-relaxed">"Clean UI, zero fluff. My kids are now obsessed with identifying every pebble in our backyard. Kid Mode is a great touch."</p>
-<div class="flex items-center gap-4 pt-4 border-t border-on-primary-container/10">
-<div class="w-10 h-10 rounded-full bg-surface-container overflow-hidden">
-<img class="w-full h-full object-cover" alt="David C., parent and nature enthusiast using Stone Snap" width="40" height="40" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8R0T-A6G8TeTYfE_0hdrhTFQeYmhOrk86tT7JV-ijOZZaY8N5qdtmnXmmL6Kb6FuhnDt66lGggec-crNk6ZbOl5AL6sWfgq6OstU18B4rJhgW2UywTpBYbyf0LNlL82jNwExTciKeKrNOcmWcbTMxDcfAHbRwkOdCk2bDWBSW1QsuBBZ8sPv1Co4w7GAvzBC36IoibOscbq2xVV38glGfKvya64Cw17WnrHqhQ-05Q7ZTjKA-RGXGBhNnUwj71cOuvx4rgaQgrA"/>
-</div>
-<div>
-<p class="font-bold text-sm">David C.</p>
-<p class="text-[10px] uppercase tracking-widest opacity-60">Parent &amp; Nature Enthusiast</p>
-</div>
-</div>
-</div>
-</div>
-</div>
+<!-- ═══════════════════ FAQ ═══════════════════ -->
+<section class="py-24" id="faq">
+  <div class="max-w-3xl mx-auto px-6">
+    <div class="text-center mb-16 reveal">
+      <span class="text-xs font-semibold uppercase tracking-[0.2em] text-em-400">Common Questions</span>
+      <h2 class="font-display text-3xl md:text-5xl text-white mt-3 mb-4">Frequently Asked Questions</h2>
+    </div>
+    <div class="space-y-4 reveal">
+      <details class="bg-surface-high rounded-2xl border border-white/[0.06] group" open>
+        <summary class="font-display text-white cursor-pointer list-none flex justify-between items-center p-6">
+          <h3 class="text-base md:text-lg pr-4">How does Stone Snap identify rocks and minerals?</h3>
+          <span class="material-symbols-outlined text-gray-500 chevron flex-shrink-0">expand_more</span>
+        </summary>
+        <p class="text-gray-400 px-6 pb-6 leading-relaxed text-sm">Stone Snap uses Google Gemini AI to analyze photos of rocks, minerals, and crystals. When you take a photo, the image is sent to Google's Gemini model which cross-references visual traits like color, luster, crystal structure, and texture against known geological specimens. The AI returns an identification along with chemical composition, Mohs hardness rating, formation history, and common uses.</p>
+      </details>
+      <details class="bg-surface-high rounded-2xl border border-white/[0.06] group">
+        <summary class="font-display text-white cursor-pointer list-none flex justify-between items-center p-6">
+          <h3 class="text-base md:text-lg pr-4">What rocks, minerals, and crystals can Stone Snap identify?</h3>
+          <span class="material-symbols-outlined text-gray-500 chevron flex-shrink-0">expand_more</span>
+        </summary>
+        <p class="text-gray-400 px-6 pb-6 leading-relaxed text-sm">Stone Snap can identify common igneous rocks (granite, basalt, obsidian, pumice), sedimentary rocks (limestone, sandstone, shale), metamorphic rocks (marble, slate, quartzite, gneiss), minerals (quartz, feldspar, mica, calcite, pyrite, amethyst, azurite), and crystals. The AI performs best with clear, well-lit photos showing the specimen's surface texture and color.</p>
+      </details>
+      <details class="bg-surface-high rounded-2xl border border-white/[0.06] group">
+        <summary class="font-display text-white cursor-pointer list-none flex justify-between items-center p-6">
+          <h3 class="text-base md:text-lg pr-4">Is Stone Snap free to use?</h3>
+          <span class="material-symbols-outlined text-gray-500 chevron flex-shrink-0">expand_more</span>
+        </summary>
+        <p class="text-gray-400 px-6 pb-6 leading-relaxed text-sm">Stone Snap is free to download on Android with 5 free rock identifications. After that, Stone Snap Pro is available for $4.99 per month with a 3-day free trial. Pro unlocks unlimited identifications, full access to Rocky AI Chat, the complete Learning Hub with quizzes and flashcards, and all premium features.</p>
+      </details>
+      <details class="bg-surface-high rounded-2xl border border-white/[0.06] group">
+        <summary class="font-display text-white cursor-pointer list-none flex justify-between items-center p-6">
+          <h3 class="text-base md:text-lg pr-4">Does Stone Snap work offline?</h3>
+          <span class="material-symbols-outlined text-gray-500 chevron flex-shrink-0">expand_more</span>
+        </summary>
+        <p class="text-gray-400 px-6 pb-6 leading-relaxed text-sm">Rock identification requires an internet connection because photos are processed by Google Gemini AI on Google's servers. However, your personal rock collection, identification history, quiz scores, and learning progress are all stored locally on your device and accessible offline.</p>
+      </details>
+      <details class="bg-surface-high rounded-2xl border border-white/[0.06] group">
+        <summary class="font-display text-white cursor-pointer list-none flex justify-between items-center p-6">
+          <h3 class="text-base md:text-lg pr-4">Is Stone Snap safe for kids?</h3>
+          <span class="material-symbols-outlined text-gray-500 chevron flex-shrink-0">expand_more</span>
+        </summary>
+        <p class="text-gray-400 px-6 pb-6 leading-relaxed text-sm">Yes. Stone Snap includes a dedicated Kid Mode with simplified language, colorful visuals, and a fun interface designed for young explorers. The app does not require account creation, does not collect personally identifiable information from children, and all data is stored locally on the device.</p>
+      </details>
+      <details class="bg-surface-high rounded-2xl border border-white/[0.06] group">
+        <summary class="font-display text-white cursor-pointer list-none flex justify-between items-center p-6">
+          <h3 class="text-base md:text-lg pr-4">Who created Stone Snap?</h3>
+          <span class="material-symbols-outlined text-gray-500 chevron flex-shrink-0">expand_more</span>
+        </summary>
+        <p class="text-gray-400 px-6 pb-6 leading-relaxed text-sm">Stone Snap was created by Luna, a lifelong rock collector and geology enthusiast. She built the app because she was tired of lugging field guides on hikes and wanted a tool that could identify any specimen on the spot. Stone Snap uses Google Gemini AI to power its identification engine.</p>
+      </details>
+    </div>
+  </div>
 </section>
 
-<!-- About Section -->
-<section class="py-24" id="about">
-<div class="max-w-4xl mx-auto px-6">
-<div class="mb-12 text-center">
-<span class="font-label text-xs uppercase tracking-widest text-secondary">About the App</span>
-<h2 class="font-headline text-3xl md:text-5xl font-bold text-primary mt-2 mb-4">The Best Rock Identifier App for Rockhounds, Hikers, and Students</h2>
-</div>
-<div class="prose max-w-none text-secondary leading-relaxed space-y-6">
-<p class="text-lg">Stone Snap is the top-rated rock identifier app for Android. It uses Google Gemini AI to identify rocks, minerals, and crystals from photos. Point your phone at any stone and get instant rock identification — no geology degree needed. Built for hikers, rockhounds, geology students, teachers, and kids who want to know "what rock is this?"</p>
-<p>The rock identification app returns detailed geological data: chemical composition, Mohs hardness rating, crystal system, formation environment, common locations, and industrial uses. Beyond rock identification, Stone Snap includes Rocky AI Chat for geology questions, a personal rock collection tracker with GPS tagging, a learning hub with mineralogy quizzes and flashcards, a magnetometer-based magnetic mineral detector, and Kid Mode for young rock collectors.</p>
-<p>Stone Snap Pro ($4.99/month with a 3-day free trial) unlocks unlimited rock identifications and full access to all features. The free rock identifier includes 5 identifications. All personal data (collection, history, quiz progress) is stored locally on your device — Stone Snap does not operate backend servers that store user data.</p>
-<p>Looking for a rock identifier for Android? Stone Snap is the most accurate AI rock identification app available on Google Play. Identify rocks from pictures, scan minerals with your camera, and build your personal geology collection.</p>
-<p class="text-sm text-outline">Contact: <a href="mailto:stonesnapapp@gmail.com" class="text-primary hover:underline">stonesnapapp@gmail.com</a> &middot; <a href="/privacy-policy" class="text-primary hover:underline">Privacy Policy</a></p>
-</div>
-</div>
+<!-- ═══════════════════ TESTIMONIALS ═══════════════════ -->
+<section class="py-24 bg-surface">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="mb-16 reveal">
+      <span class="text-xs font-semibold uppercase tracking-[0.2em] text-em-400">Reviews</span>
+      <h2 class="font-display text-3xl text-white mt-3">What Users Are Saying</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="reveal bg-surface-high rounded-2xl p-8 border border-white/[0.04] space-y-4">
+        <div class="flex text-gold-400">
+          <span class="material-symbols-outlined text-lg" style="font-variation-settings:'FILL' 1">star</span>
+          <span class="material-symbols-outlined text-lg" style="font-variation-settings:'FILL' 1">star</span>
+          <span class="material-symbols-outlined text-lg" style="font-variation-settings:'FILL' 1">star</span>
+          <span class="material-symbols-outlined text-lg" style="font-variation-settings:'FILL' 1">star</span>
+          <span class="material-symbols-outlined text-lg" style="font-variation-settings:'FILL' 1">star</span>
+        </div>
+        <p class="italic text-gray-300 leading-relaxed text-sm">"As an avid hiker, Stone Snap has turned every trail into a learning experience. The accuracy even in low-light conditions is remarkable."</p>
+        <div class="flex items-center gap-3 pt-3 border-t border-white/[0.04]">
+          <div class="w-10 h-10 rounded-full overflow-hidden bg-surface">
+            <img class="w-full h-full object-cover" alt="Marcus T., hiker and Stone Snap user" width="40" height="40" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3vmoX5cju17_o-sJdzwtvaKwzUmMTdvFUNSodd8cPu7GKQHorZUrPz63z4rZ_0xi4vmIzwiUP6Kz1uoaSDJu14h9LNXSPKXRUCCzyVE3oWqIoYMzessXpS02hdClPlnOeZCDL-RlBo6r7dgs6eDvYDAy2Rl7nJXxjxtcLsIqRVgKAFEucgxDTjKE-2JQ4LEE_917J0ACZD8vF37JRdbesteMZo6Tmp1AFCr8GRwP0UCBfOvjxsK8B8yAUw_3enXIaiPPqcGQ0DQ"/>
+          </div>
+          <div>
+            <p class="font-semibold text-sm text-white">Marcus T.</p>
+            <p class="text-[10px] uppercase tracking-[0.15em] text-gray-500">Hiker &amp; Outdoor Enthusiast</p>
+          </div>
+        </div>
+      </div>
+      <div class="reveal bg-surface-high rounded-2xl p-8 border border-white/[0.04] space-y-4 md:mt-8" style="transition-delay:0.1s">
+        <div class="flex text-gold-400">
+          <span class="material-symbols-outlined text-lg" style="font-variation-settings:'FILL' 1">star</span>
+          <span class="material-symbols-outlined text-lg" style="font-variation-settings:'FILL' 1">star</span>
+          <span class="material-symbols-outlined text-lg" style="font-variation-settings:'FILL' 1">star</span>
+          <span class="material-symbols-outlined text-lg" style="font-variation-settings:'FILL' 1">star</span>
+          <span class="material-symbols-outlined text-lg" style="font-variation-settings:'FILL' 1">star_half</span>
+        </div>
+        <p class="italic text-gray-300 leading-relaxed text-sm">"The geological data goes deep. Chemical breakdowns I'd normally need a lab manual for. I use it regularly during field work for quick reference."</p>
+        <div class="flex items-center gap-3 pt-3 border-t border-white/[0.04]">
+          <div class="w-10 h-10 rounded-full overflow-hidden bg-surface">
+            <img class="w-full h-full object-cover" alt="Sarah J., geology student and Stone Snap user" width="40" height="40" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBF8-zsORO0kWhlqe8pc4AEBa2Vud-b8d4Msbv4v-OI-b9b3ErwEAN98CcxqVoyWl3_YJIo_GkuCOKIy4r-_8AtM28nPGrs7eNwcB43WwivcUFh25JSqosS6Um3o_o8MWRMrBUp6Myh2d7NTvGkaKbhlpKKls5r9l9cGJUbZT7zU16QgknYG8m8Nq3RskcJ6K1831eN5Slz-vkJlbnRUq2fJMuDn4j9184DDrD2aLFE6Efe5wPOHH9JizchVC8n89hTNr4irAcWug"/>
+          </div>
+          <div>
+            <p class="font-semibold text-sm text-white">Sarah J.</p>
+            <p class="text-[10px] uppercase tracking-[0.15em] text-gray-500">Geology Student</p>
+          </div>
+        </div>
+      </div>
+      <div class="reveal bg-surface-high rounded-2xl p-8 border border-white/[0.04] space-y-4" style="transition-delay:0.2s">
+        <div class="flex text-gold-400">
+          <span class="material-symbols-outlined text-lg" style="font-variation-settings:'FILL' 1">star</span>
+          <span class="material-symbols-outlined text-lg" style="font-variation-settings:'FILL' 1">star</span>
+          <span class="material-symbols-outlined text-lg" style="font-variation-settings:'FILL' 1">star</span>
+          <span class="material-symbols-outlined text-lg" style="font-variation-settings:'FILL' 1">star</span>
+          <span class="material-symbols-outlined text-lg" style="font-variation-settings:'FILL' 1">star</span>
+        </div>
+        <p class="italic text-gray-300 leading-relaxed text-sm">"Clean UI, zero fluff. My kids are now obsessed with identifying every pebble in our backyard. Kid Mode is a great touch."</p>
+        <div class="flex items-center gap-3 pt-3 border-t border-white/[0.04]">
+          <div class="w-10 h-10 rounded-full overflow-hidden bg-surface">
+            <img class="w-full h-full object-cover" alt="David C., parent and Stone Snap user" width="40" height="40" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8R0T-A6G8TeTYfE_0hdrhTFQeYmhOrk86tT7JV-ijOZZaY8N5qdtmnXmmL6Kb6FuhnDt66lGggec-crNk6ZbOl5AL6sWfgq6OstU18B4rJhgW2UywTpBYbyf0LNlL82jNwExTciKeKrNOcmWcbTMxDcfAHbRwkOdCk2bDWBSW1QsuBBZ8sPv1Co4w7GAvzBC36IoibOscbq2xVV38glGfKvya64Cw17WnrHqhQ-05Q7ZTjKA-RGXGBhNnUwj71cOuvx4rgaQgrA"/>
+          </div>
+          <div>
+            <p class="font-semibold text-sm text-white">David C.</p>
+            <p class="text-[10px] uppercase tracking-[0.15em] text-gray-500">Parent &amp; Nature Enthusiast</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- Download CTA -->
-<section class="py-32 px-6">
-<div class="max-w-4xl mx-auto text-center space-y-8 bg-surface-container-high p-16 rounded-[3rem] relative overflow-hidden">
-<div class="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 bg-tertiary-fixed-dim/20 rounded-full blur-3xl"></div>
-<h2 class="font-headline text-4xl md:text-6xl font-bold text-primary leading-tight">Download the Best Rock Identifier App</h2>
-<p class="text-xl text-secondary max-w-2xl mx-auto">Free rock identification app for Android. 5 free rock IDs included. No account required. AI rock identifier powered by Google Gemini.</p>
-<div class="flex flex-col sm:flex-row gap-6 justify-center pt-8">
-<a class="mineral-gradient text-on-primary px-10 py-5 rounded-2xl font-label font-bold text-lg shadow-xl hover:-translate-y-1 transition-all flex items-center justify-center gap-3" href="https://play.google.com/store/apps/details?id=com.stonesnap" rel="noopener" target="_blank">
-<span class="material-symbols-outlined">download</span>
-                        Get Stone Snap on Google Play
-                    </a>
-</div>
-</div>
+<!-- ═══════════════════ MEET LUNA ═══════════════════ -->
+<section class="py-24 relative overflow-hidden" id="luna">
+  <div class="absolute inset-0 bg-gradient-to-br from-em-900/30 via-base to-gold-500/5"></div>
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <div class="reveal order-2 lg:order-1 space-y-6">
+        <span class="text-xs font-semibold uppercase tracking-[0.2em] text-em-400">The Story Behind the App</span>
+        <h2 class="font-display text-3xl md:text-5xl text-white leading-tight">Meet Luna</h2>
+        <p class="text-gray-400 leading-relaxed">
+          Luna has been collecting rocks since she could walk. Shoe boxes full of quartz, pockets full of gravel her parents didn't appreciate, and a college geology textbook that fell apart from overuse.
+        </p>
+        <p class="text-gray-400 leading-relaxed">
+          She built Stone Snap because the existing options were terrible. Field guides are heavy. Google Lens gives you a Wikipedia link. She wanted something that could look at a rock and actually tell you what it is &mdash; the chemistry, the hardness, where it forms, what it's used for. So she plugged into Google's Gemini AI and built the tool herself.
+        </p>
+        <blockquote class="border-l-2 border-em-400 pl-6 py-2">
+          <p class="text-white italic font-display text-lg leading-relaxed">"I just wanted an app that could do what my geology professor did &mdash; look at a rock and rattle off everything about it."</p>
+          <cite class="text-em-400 text-sm font-semibold not-italic mt-2 block">&mdash; Luna, Creator of Stone Snap</cite>
+        </blockquote>
+        <a href="https://play.google.com/store/apps/details?id=com.stonesnap" class="inline-flex items-center gap-2 bg-em-600 hover:bg-em-500 text-white px-6 py-3 rounded-xl font-semibold text-sm transition-all mt-2" rel="noopener" target="_blank">
+          Try Luna's App Free
+          <span class="material-symbols-outlined text-lg">arrow_forward</span>
+        </a>
+      </div>
+      <div class="reveal order-1 lg:order-2 relative">
+        <div class="aspect-[3/4] rounded-2xl overflow-hidden border border-white/[0.06] shadow-2xl shadow-black/50">
+          <img class="w-full h-full object-cover object-top" alt="Luna, creator of Stone Snap, holding a crystal specimen on a forest trail" width="600" height="800" loading="lazy" src="/images/luna-trail.jpg"/>
+        </div>
+        <div class="absolute -bottom-4 -right-4 bg-surface p-4 rounded-xl border border-white/[0.06] shadow-lg">
+          <p class="text-[10px] text-em-400 uppercase tracking-[0.2em] font-semibold">Luna's Collection</p>
+          <p class="text-white font-display text-lg mt-0.5">847 specimens</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
+
+<!-- ═══════════════════ FINAL CTA ═══════════════════ -->
+<section class="py-24 bg-surface relative overflow-hidden">
+  <div class="absolute inset-0 hero-glow opacity-50"></div>
+  <div class="max-w-3xl mx-auto px-6 text-center relative z-10 reveal">
+    <h2 class="font-display text-3xl md:text-5xl text-white mb-5">The Best Rock Identifier App for Android</h2>
+    <p class="text-gray-400 text-lg mb-8 max-w-xl mx-auto">Free to download. 5 free identifications. Powered by Google Gemini AI. Built by a collector, for collectors.</p>
+    <a href="https://play.google.com/store/apps/details?id=com.stonesnap" class="inline-flex items-center gap-3 bg-em-600 hover:bg-em-500 text-white px-10 py-5 rounded-xl font-semibold transition-all shadow-lg shadow-em-600/20 hover:shadow-em-500/30" rel="noopener" target="_blank">
+      <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302-2.302 2.302L15.396 12l2.302-2.492zM5.864 2.658L16.8 8.99l-2.302 2.302L5.864 2.658z"/></svg>
+      DOWNLOAD STONE SNAP FREE
+    </a>
+  </div>
+</section>
+
 </main>
 
-<!-- Footer -->
-<footer class="bg-[#f6f3ed] dark:bg-[#1c1c18] full-width py-12 px-6">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center max-w-7xl mx-auto">
-<div class="space-y-4">
-<div class="text-lg font-bold text-[#163826] dark:text-[#fcf9f3]">Stone Snap</div>
-<p class="font-['Manrope'] text-sm text-[#48626e] dark:text-[#e5e2dc]">The best AI rock identifier app for Android. Rock identification from photos powered by Google Gemini AI.</p>
-<p class="font-['Manrope'] text-xs uppercase tracking-widest text-[#727973]">&copy; 2026 Stone Snap. All rights reserved.</p>
-</div>
-<div class="flex flex-wrap gap-x-8 gap-y-4 md:justify-end font-['Manrope'] text-sm uppercase tracking-widest">
-<a class="text-[#48626e] dark:text-[#e5e2dc] hover:text-[#163826] dark:hover:text-[#ffba38] transition-colors" href="/privacy-policy">Privacy Policy</a>
-<a class="text-[#48626e] dark:text-[#e5e2dc] hover:text-[#163826] dark:hover:text-[#ffba38] transition-colors" href="mailto:stonesnapapp@gmail.com">Contact Us</a>
-<a class="text-[#48626e] dark:text-[#e5e2dc] hover:text-[#163826] dark:hover:text-[#ffba38] transition-colors" href="https://play.google.com/store/apps/details?id=com.stonesnap" rel="noopener" target="_blank">Google Play</a>
-</div>
-</div>
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer class="border-t border-white/[0.04] py-16 bg-base">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+      <div class="md:col-span-2 space-y-4">
+        <h3 class="font-display text-xl text-white">Stone Snap</h3>
+        <p class="text-gray-500 text-sm leading-relaxed max-w-sm">AI-powered rock identification app for Android. Built by Luna, powered by Google Gemini AI. Identify rocks, minerals, and crystals from photos.</p>
+        <p class="text-gray-600 text-xs">stonesnapapp@gmail.com</p>
+      </div>
+      <div class="space-y-4">
+        <h4 class="text-sm font-semibold text-gray-400 uppercase tracking-widest">App</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#features" class="text-gray-500 hover:text-em-400 transition-colors">Features</a></li>
+          <li><a href="#gallery" class="text-gray-500 hover:text-em-400 transition-colors">Gallery</a></li>
+          <li><a href="#faq" class="text-gray-500 hover:text-em-400 transition-colors">FAQ</a></li>
+          <li><a href="/blog/" class="text-gray-500 hover:text-em-400 transition-colors">Blog</a></li>
+        </ul>
+      </div>
+      <div class="space-y-4">
+        <h4 class="text-sm font-semibold text-gray-400 uppercase tracking-widest">Legal</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="/privacy-policy/" class="text-gray-500 hover:text-em-400 transition-colors">Privacy Policy</a></li>
+          <li><a href="https://play.google.com/store/apps/details?id=com.stonesnap" class="text-gray-500 hover:text-em-400 transition-colors" rel="noopener" target="_blank">Google Play</a></li>
+          <li><a href="/llms.txt" class="text-gray-500 hover:text-em-400 transition-colors">llms.txt</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-white/[0.04] mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-gray-600 text-xs">&copy; 2026 Stone Snap. All rights reserved.</p>
+      <p class="text-gray-600 text-xs">Made with rocks and code by Luna.</p>
+    </div>
+  </div>
 </footer>
 
-<!-- Mobile menu toggle -->
+<!-- ═══════════════════ SCRIPTS ═══════════════════ -->
 <script>
-(function() {
-  var btn = document.getElementById('mobile-menu-btn');
-  var menu = document.getElementById('mobile-menu');
-  if (btn && menu) {
-    btn.addEventListener('click', function() {
-      menu.classList.toggle('hidden');
-      btn.setAttribute('aria-expanded', !menu.classList.contains('hidden'));
-    });
-    menu.querySelectorAll('a').forEach(function(link) {
-      link.addEventListener('click', function() {
-        menu.classList.add('hidden');
-        btn.setAttribute('aria-expanded', 'false');
-      });
-    });
+// Mobile menu toggle
+const menuBtn = document.getElementById('mobile-menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+menuBtn.addEventListener('click', () => {
+  const open = mobileMenu.classList.toggle('hidden');
+  menuBtn.setAttribute('aria-expanded', !open);
+  menuBtn.querySelector('span').textContent = open ? 'menu' : 'close';
+});
+mobileMenu.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    mobileMenu.classList.add('hidden');
+    menuBtn.setAttribute('aria-expanded', 'false');
+    menuBtn.querySelector('span').textContent = 'menu';
+  });
+});
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Nav background on scroll
+const nav = document.querySelector('nav');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 20) {
+    nav.classList.add('shadow-lg', 'shadow-black/20');
+  } else {
+    nav.classList.remove('shadow-lg', 'shadow-black/20');
   }
-})();
+}, { passive: true });
 </script>
+
 </body>
 </html>
