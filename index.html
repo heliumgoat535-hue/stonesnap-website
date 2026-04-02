@@ -107,18 +107,27 @@ details[open] summary .chevron { transform: rotate(180deg); }
   "@type": "Organization",
   "name": "Stone Snap",
   "url": "https://stonesnapapp.com",
-  "logo": "https://stonesnapapp.com/logo.png",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://stonesnapapp.com/apple-touch-icon.png",
+    "width": 180,
+    "height": 180
+  },
   "description": "Stone Snap is the best rock identifier app for Android. AI rock identification from photos — identify rocks, minerals, and crystals instantly. Free rock identifier powered by Google Gemini AI.",
   "email": "stonesnapapp@gmail.com",
+  "foundingDate": "2026",
   "founder": {
     "@type": "Person",
-    "name": "Luna",
+    "name": "Luna Marchetti",
     "jobTitle": "Creator of Stone Snap",
-    "description": "Rock collector and geology enthusiast who built Stone Snap to bring AI-powered rock identification to every trail, classroom, and backyard.",
-    "image": "https://stonesnapapp.com/images/luna-trail.jpg"
+    "url": "https://stonesnapapp.com/about-luna/"
   },
   "sameAs": [
-    "https://play.google.com/store/apps/details?id=com.stonesnap"
+    "https://play.google.com/store/apps/details?id=com.stonesnap",
+    "https://www.youtube.com/@stonesnapapp",
+    "https://x.com/stonesnapapp",
+    "https://www.linkedin.com/company/stonesnapapp",
+    "https://github.com/stonesnapapp"
   ],
   "contactPoint": {
     "@type": "ContactPoint",
@@ -133,11 +142,18 @@ details[open] summary .chevron { transform: rotate(180deg); }
 {
   "@context": "https://schema.org",
   "@type": "Person",
-  "name": "Luna",
+  "name": "Luna Marchetti",
+  "alternateName": "Luna",
   "jobTitle": "Creator of Stone Snap",
-  "description": "Rock collector and geology enthusiast who created Stone Snap, the AI-powered rock identifier app for Android.",
+  "description": "Rock collector, geology enthusiast, and creator of Stone Snap — the AI-powered rock identifier app for Android. Luna has been collecting and studying rocks for over 15 years.",
   "image": "https://stonesnapapp.com/images/luna-trail.jpg",
-  "url": "https://stonesnapapp.com",
+  "url": "https://stonesnapapp.com/about-luna/",
+  "knowsAbout": ["Geology", "Mineralogy", "Rock Identification", "Crystal Identification", "AI", "Machine Learning", "Mobile App Development"],
+  "sameAs": [
+    "https://x.com/stonesnapapp",
+    "https://www.linkedin.com/in/lunamarchetti",
+    "https://github.com/stonesnapapp"
+  ],
   "worksFor": {
     "@type": "Organization",
     "name": "Stone Snap",
@@ -156,6 +172,8 @@ details[open] summary .chevron { transform: rotate(180deg); }
   "applicationCategory": "EducationApplication",
   "operatingSystem": "Android",
   "url": "https://stonesnapapp.com",
+  "image": "https://stonesnapapp.com/images/bento-grid.png",
+  "screenshot": "https://stonesnapapp.com/screen.png",
   "offers": {
     "@type": "Offer",
     "price": "0",
@@ -166,8 +184,8 @@ details[open] summary .chevron { transform: rotate(180deg); }
   "downloadUrl": "https://play.google.com/store/apps/details?id=com.stonesnap",
   "author": {
     "@type": "Person",
-    "name": "Luna",
-    "url": "https://stonesnapapp.com"
+    "name": "Luna Marchetti",
+    "url": "https://stonesnapapp.com/about-luna/"
   }
 }
 </script>
@@ -179,7 +197,12 @@ details[open] summary .chevron { transform: rotate(180deg); }
   "@type": "WebSite",
   "name": "Stone Snap",
   "url": "https://stonesnapapp.com",
-  "description": "Official website for Stone Snap, the best rock identifier app for Android. AI rock identification from photos, mineral identifier, crystal identifier, and geology learning app. Created by Luna."
+  "description": "Official website for Stone Snap, the best rock identifier app for Android. AI rock identification from photos, mineral identifier, crystal identifier, and geology learning app. Created by Luna Marchetti.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Stone Snap",
+    "url": "https://stonesnapapp.com"
+  }
 }
 </script>
 
@@ -287,9 +310,9 @@ details[open] summary .chevron { transform: rotate(180deg); }
     <a href="/" class="text-2xl font-display text-white tracking-tight">Stone Snap</a>
     <div class="hidden md:flex items-center gap-8">
       <a class="text-sm font-body font-medium text-gray-400 hover:text-em-400 transition-colors" href="#features">Features</a>
-      <a class="text-sm font-body font-medium text-gray-400 hover:text-em-400 transition-colors" href="#gallery">Gallery</a>
+      <a class="text-sm font-body font-medium text-gray-400 hover:text-em-400 transition-colors" href="#compare">Compare</a>
       <a class="text-sm font-body font-medium text-gray-400 hover:text-em-400 transition-colors" href="#faq">FAQ</a>
-      <a class="text-sm font-body font-medium text-gray-400 hover:text-em-400 transition-colors" href="#luna">About Luna</a>
+      <a class="text-sm font-body font-medium text-gray-400 hover:text-em-400 transition-colors" href="/about-luna/">About Luna</a>
       <a class="text-sm font-body font-medium text-gray-400 hover:text-em-400 transition-colors" href="/blog/">Blog</a>
       <a href="https://play.google.com/store/apps/details?id=com.stonesnap" class="bg-em-600 hover:bg-em-500 text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition-all" rel="noopener" target="_blank">
         Download Free
@@ -301,9 +324,9 @@ details[open] summary .chevron { transform: rotate(180deg); }
   </div>
   <div id="mobile-menu" class="hidden md:hidden px-6 pb-5 space-y-1 border-t border-white/[0.04]">
     <a class="block text-gray-400 hover:text-em-400 py-3 text-sm font-medium" href="#features">Features</a>
-    <a class="block text-gray-400 hover:text-em-400 py-3 text-sm font-medium" href="#gallery">Gallery</a>
+    <a class="block text-gray-400 hover:text-em-400 py-3 text-sm font-medium" href="#compare">Compare</a>
     <a class="block text-gray-400 hover:text-em-400 py-3 text-sm font-medium" href="#faq">FAQ</a>
-    <a class="block text-gray-400 hover:text-em-400 py-3 text-sm font-medium" href="#luna">About Luna</a>
+    <a class="block text-gray-400 hover:text-em-400 py-3 text-sm font-medium" href="/about-luna/">About Luna</a>
     <a class="block text-gray-400 hover:text-em-400 py-3 text-sm font-medium" href="/blog/">Blog</a>
     <a href="https://play.google.com/store/apps/details?id=com.stonesnap" class="block bg-em-600 text-white px-5 py-3 rounded-lg text-center text-sm font-semibold mt-2" rel="noopener" target="_blank">Download Free</a>
   </div>
@@ -477,6 +500,95 @@ details[open] summary .chevron { transform: rotate(180deg); }
           <p class="text-em-400 text-xs uppercase tracking-[0.15em] font-semibold mt-1">Volcanic Glass &middot; SiO&#8322;</p>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ COMPARISON TABLE ═══════════════════ -->
+<section class="py-24" id="compare">
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="text-center mb-12 reveal">
+      <span class="text-xs font-semibold uppercase tracking-[0.2em] text-em-400">How We Compare</span>
+      <h2 class="font-display text-3xl md:text-4xl text-white mt-3 mb-4">Stone Snap vs Other Rock Identifier Tools</h2>
+      <p class="text-gray-400 max-w-2xl mx-auto">Not all rock identification tools are the same. Here's how Stone Snap stacks up against the most common alternatives.</p>
+    </div>
+    <div class="reveal overflow-x-auto rounded-2xl border border-white/[0.06]">
+      <table class="w-full text-left text-sm">
+        <thead>
+          <tr class="bg-surface-high border-b border-white/[0.06]">
+            <th class="px-6 py-4 font-semibold text-gray-300 font-body">Feature</th>
+            <th class="px-6 py-4 font-semibold text-em-400 font-body">Stone Snap</th>
+            <th class="px-6 py-4 font-semibold text-gray-300 font-body">Google Lens</th>
+            <th class="px-6 py-4 font-semibold text-gray-300 font-body">iNaturalist</th>
+            <th class="px-6 py-4 font-semibold text-gray-300 font-body">Field Guide Books</th>
+          </tr>
+        </thead>
+        <tbody class="text-gray-400">
+          <tr class="border-b border-white/[0.04]">
+            <td class="px-6 py-4 text-white font-medium">AI Model</td>
+            <td class="px-6 py-4 text-em-400">Google Gemini</td>
+            <td class="px-6 py-4">Google Vision</td>
+            <td class="px-6 py-4">Custom CV model</td>
+            <td class="px-6 py-4 text-gray-500">N/A</td>
+          </tr>
+          <tr class="border-b border-white/[0.04]">
+            <td class="px-6 py-4 text-white font-medium">Rock-Specific AI</td>
+            <td class="px-6 py-4 text-em-400">Yes — geology-trained</td>
+            <td class="px-6 py-4">No — general purpose</td>
+            <td class="px-6 py-4">No — biology-focused</td>
+            <td class="px-6 py-4 text-gray-500">N/A</td>
+          </tr>
+          <tr class="border-b border-white/[0.04]">
+            <td class="px-6 py-4 text-white font-medium">Chemical Composition</td>
+            <td class="px-6 py-4 text-em-400">Yes</td>
+            <td class="px-6 py-4 text-gray-500">No</td>
+            <td class="px-6 py-4 text-gray-500">No</td>
+            <td class="px-6 py-4">Some books</td>
+          </tr>
+          <tr class="border-b border-white/[0.04]">
+            <td class="px-6 py-4 text-white font-medium">Mohs Hardness</td>
+            <td class="px-6 py-4 text-em-400">Yes</td>
+            <td class="px-6 py-4 text-gray-500">No</td>
+            <td class="px-6 py-4 text-gray-500">No</td>
+            <td class="px-6 py-4">Yes</td>
+          </tr>
+          <tr class="border-b border-white/[0.04]">
+            <td class="px-6 py-4 text-white font-medium">Formation History</td>
+            <td class="px-6 py-4 text-em-400">Yes</td>
+            <td class="px-6 py-4 text-gray-500">No</td>
+            <td class="px-6 py-4 text-gray-500">No</td>
+            <td class="px-6 py-4">Varies</td>
+          </tr>
+          <tr class="border-b border-white/[0.04]">
+            <td class="px-6 py-4 text-white font-medium">Personal Collection</td>
+            <td class="px-6 py-4 text-em-400">Yes — with GPS</td>
+            <td class="px-6 py-4 text-gray-500">No</td>
+            <td class="px-6 py-4">Observations log</td>
+            <td class="px-6 py-4 text-gray-500">No</td>
+          </tr>
+          <tr class="border-b border-white/[0.04]">
+            <td class="px-6 py-4 text-white font-medium">Learning Tools</td>
+            <td class="px-6 py-4 text-em-400">Quizzes, flashcards, XP</td>
+            <td class="px-6 py-4 text-gray-500">No</td>
+            <td class="px-6 py-4 text-gray-500">No</td>
+            <td class="px-6 py-4 text-gray-500">No</td>
+          </tr>
+          <tr class="border-b border-white/[0.04]">
+            <td class="px-6 py-4 text-white font-medium">Kid Mode</td>
+            <td class="px-6 py-4 text-em-400">Yes</td>
+            <td class="px-6 py-4 text-gray-500">No</td>
+            <td class="px-6 py-4 text-gray-500">No</td>
+            <td class="px-6 py-4 text-gray-500">No</td>
+          </tr>
+          <tr>
+            <td class="px-6 py-4 text-white font-medium">Price</td>
+            <td class="px-6 py-4 text-em-400">Free (5 IDs) / $4.99/mo</td>
+            <td class="px-6 py-4">Free</td>
+            <td class="px-6 py-4">Free</td>
+            <td class="px-6 py-4">$15–$40</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </section>
@@ -705,7 +817,8 @@ details[open] summary .chevron { transform: rotate(180deg); }
     </div>
     <div class="border-t border-white/[0.04] mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
       <p class="text-gray-600 text-xs">&copy; 2026 Stone Snap. All rights reserved.</p>
-      <p class="text-gray-600 text-xs">Made with rocks and code by Luna.</p>
+      <p class="text-gray-600 text-xs">Last updated: April 2026</p>
+      <p class="text-gray-600 text-xs">Made with rocks and code by <a href="/about-luna/" class="hover:text-em-400 transition-colors">Luna</a>.</p>
     </div>
   </div>
 </footer>

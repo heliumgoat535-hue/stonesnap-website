@@ -2,9 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://stonesnapapp.com/</loc>
-    <lastmod>2026-04-01</lastmod>
+    <lastmod>2026-04-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://stonesnapapp.com/about-luna/</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://stonesnapapp.com/blog/</loc>
@@ -14,31 +20,31 @@
   </url>
   <url>
     <loc>https://stonesnapapp.com/blog/best-rock-identifier-apps/</loc>
-    <lastmod>2026-03-29</lastmod>
+    <lastmod>2026-04-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://stonesnapapp.com/blog/how-to-identify-rocks-from-photos/</loc>
-    <lastmod>2026-03-29</lastmod>
+    <lastmod>2026-04-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://stonesnapapp.com/blog/what-rock-is-this/</loc>
-    <lastmod>2026-03-29</lastmod>
+    <lastmod>2026-04-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://stonesnapapp.com/blog/ai-rock-identification/</loc>
-    <lastmod>2026-03-29</lastmod>
+    <lastmod>2026-04-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://stonesnapapp.com/blog/crystal-mineral-identifier/</loc>
-    <lastmod>2026-03-29</lastmod>
+    <lastmod>2026-04-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
