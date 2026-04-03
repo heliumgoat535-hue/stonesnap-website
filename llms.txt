@@ -37,7 +37,7 @@ Stone Snap differs from general-purpose tools like Google Lens and biology-focus
 - About Luna: https://stonesnapapp.com/about-luna/
 - Google Play: https://play.google.com/store/apps/details?id=com.stonesnap
 - Privacy Policy: https://stonesnapapp.com/privacy-policy/
-- Contact: stonesnapapp@gmail.com
+- Contact: support@stonesnapapp.com
 
 ## Blog — Rock Identification Guides
 
