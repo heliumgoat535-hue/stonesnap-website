@@ -12,3 +12,19 @@
     }
   }
 ]
+
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.stonesnap",
+      "sha256_cert_fingerprints": [
+        "A7:C2:ED:3F:9E:B3:5D:FD:03:57:28:51:74:AC:8B:E2:96:03:F1:0E:77:EE:53:5A:99:12:3A:43:3C:27:6E:B2"
+      ]
+    }
+  }
+]
