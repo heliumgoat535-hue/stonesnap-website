@@ -80,9 +80,9 @@ article ul li { margin-bottom: 0.5rem; line-height: 1.7; color: #424843; list-st
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {"@type": "Question","name": "How does AI identify rocks from photos?","acceptedAnswer": {"@type": "Answer","text": "AI rock identification uses computer vision models trained on millions of labeled geological images. When you photograph a rock, the AI analyzes visual features including color patterns, grain size and texture, crystal structure, surface morphology, lustre, and fracture patterns. Large language vision models like Google Gemini can reason about these features across geological context, not just pattern-match against a fixed database."}},
-    {"@type": "Question","name": "How accurate is AI rock identification?","acceptedAnswer": {"@type": "Answer","text": "AI rock identification accuracy depends heavily on the model used and photo quality. Apps using large vision models like Google Gemini correctly identify common rocks (granite, basalt, limestone, sandstone, quartz) from good photos with 85-95% accuracy. Rare minerals, heavily weathered specimens, and poor-quality photos reduce accuracy. AI identification is comparable to an experienced amateur geologist for common specimens."}},
-    {"@type": "Question","name": "What AI does Stone Snap use for rock identification?","acceptedAnswer": {"@type": "Answer","text": "Stone Snap uses Google Gemini AI for rock identification. Gemini is a large multimodal model that can analyze images and provide detailed geological context — not just a species label but chemical composition, Mohs hardness, crystal system, formation environment, and where the specimen is typically found."}}
+    {"@type": "Question","name": "How does AI identify rocks from photos?","acceptedAnswer": {"@type": "Answer","text": "AI rock identification uses computer vision models trained on millions of labeled geological images. When you photograph a rock, the AI analyzes visual features including color patterns, grain size and texture, crystal structure, surface morphology, lustre, and fracture patterns. Large multimodal vision models can reason about these features across geological context, not just pattern-match against a fixed database."}},
+    {"@type": "Question","name": "How accurate is AI rock identification?","acceptedAnswer": {"@type": "Answer","text": "AI rock identification accuracy depends heavily on the model used and photo quality. Apps using large multimodal vision models correctly identify common rocks (granite, basalt, limestone, sandstone, quartz) from good photos with 85-95% accuracy. Rare minerals, heavily weathered specimens, and poor-quality photos reduce accuracy. AI identification is comparable to an experienced amateur geologist for common specimens."}},
+    {"@type": "Question","name": "What AI does Stone Snap use for rock identification?","acceptedAnswer": {"@type": "Answer","text": "Stone Snap uses a large multimodal AI model for rock identification. It can analyze images and provide detailed geological context — not just a species label but chemical composition, Mohs hardness, crystal system, formation environment, and where the specimen is typically found."}}
   ]
 }
 </script>
@@ -148,7 +148,7 @@ article ul li { margin-bottom: 0.5rem; line-height: 1.7; color: #424843; list-st
 
     <p>Early rock identifier apps used purpose-built image classifiers: neural networks trained specifically on geological images, output limited to a fixed set of rock and mineral species. These worked for well-documented common specimens but were brittle — unusual lighting, weathering, or anything outside the training distribution led to wrong answers, and the model had no way to express uncertainty meaningfully.</p>
 
-    <p>Large multimodal models like Google Gemini — which Stone Snap uses — are different in kind, not just degree. These models have been trained on vast amounts of scientific text (geology textbooks, mineralogy papers, museum catalogs) alongside millions of images. They don't just pattern-match visual features against a database; they reason about what they're seeing in geological context.</p>
+    <p>Large multimodal models, which Stone Snap uses, are different in kind, not just degree. These models have been trained on vast amounts of scientific text (geology textbooks, mineralogy papers, museum catalogs) alongside millions of images. They don't just pattern-match visual features against a database; they reason about what they're seeing in geological context.</p>
 
     <p>This means a large model can:</p>
     <ul>
@@ -176,7 +176,7 @@ article ul li { margin-bottom: 0.5rem; line-height: 1.7; color: #424843; list-st
 
     <h2>What Stone Snap Returns After AI Identification</h2>
 
-    <p>Stone Snap uses Google Gemini AI to do more than just name the specimen. After identifying a rock or mineral, it returns a complete geological profile:</p>
+    <p>Stone Snap uses multimodal AI to do more than just name the specimen. After identifying a rock or mineral, it returns a complete geological profile:</p>
 
     <ul>
       <li><strong>Mohs hardness:</strong> The relative hardness of the mineral on a scale from 1 (talc) to 10 (diamond). This is immediately verifiable with physical tests — quartz (Mohs 7) scratches glass, calcite (Mohs 3) is scratched by a steel knife.</li>
@@ -203,7 +203,7 @@ article ul li { margin-bottom: 0.5rem; line-height: 1.7; color: #424843; list-st
 
     <div class="my-10 p-8 bg-surface-container-low rounded-2xl border border-outline-variant/20 text-center">
       <h3 class="font-headline text-xl font-bold text-primary mb-2">Try AI Rock Identification</h3>
-      <p class="text-secondary mb-6 text-sm">Stone Snap uses Google Gemini AI — free on Android, 5 identifications included.</p>
+      <p class="text-secondary mb-6 text-sm">Stone Snap uses multimodal AI — free on Android, 5 identifications included.</p>
       <a href="https://play.google.com/store/apps/details?id=com.stonesnap" class="inline-flex items-center gap-2 mineral-gradient text-on-primary px-8 py-4 rounded-xl font-label font-bold text-sm shadow hover:opacity-90 transition-all" rel="noopener" target="_blank">
         <span class="material-symbols-outlined">download</span>
         Download Stone Snap
@@ -213,13 +213,13 @@ article ul li { margin-bottom: 0.5rem; line-height: 1.7; color: #424843; list-st
     <h2>Frequently Asked Questions</h2>
 
     <h3>How does AI identify rocks from photos?</h3>
-    <p>AI rock identification uses large vision models trained on millions of labeled geological images. When you submit a photo, the model analyzes visual features — color patterns, grain texture, crystal morphology, lustre, fracture patterns — and cross-references them with geological knowledge to produce an identification. Apps like Stone Snap use Google Gemini, which can reason about geological context rather than just matching patterns against a fixed database.</p>
+    <p>AI rock identification uses large vision models trained on millions of labeled geological images. When you submit a photo, the model analyzes visual features — color patterns, grain texture, crystal morphology, lustre, fracture patterns — and cross-references them with geological knowledge to produce an identification. Apps like Stone Snap use large multimodal models, which can reason about geological context rather than just matching patterns against a fixed database.</p>
 
     <h3>How accurate is AI rock identification?</h3>
     <p>For common rocks and minerals photographed clearly in good light, AI rock identification accuracy is 85-95%. This is comparable to an experienced amateur geologist for standard specimens. Accuracy decreases for rare minerals, heavily weathered specimens, and poor-quality photos. High-confidence identifications of common specimens are generally reliable; low-confidence results should be verified with physical tests.</p>
 
     <h3>What AI does Stone Snap use?</h3>
-    <p>Stone Snap uses Google Gemini AI — a large multimodal model that analyzes both images and geological context. Gemini returns not just the specimen name but chemical composition, Mohs hardness, crystal system, formation environment, and common locations. This is significantly more informative than purpose-built classifiers that only return a species label.</p>
+    <p>Stone Snap uses a large multimodal AI model that analyzes both images and geological context. It returns not just the specimen name but chemical composition, Mohs hardness, crystal system, formation environment, and common locations. This is significantly more informative than purpose-built classifiers that only return a species label.</p>
 
     <h3>Is AI better than a field guide for rock identification?</h3>
     <p>For most practical purposes, yes. AI rock identification from photos is faster, returns more structured data, and for common specimens is more accurate than cross-referencing written field guide plates. Field guides remain useful for understanding geological context, reading the landscape, and verifying uncertain AI results. The best approach is using both: AI for rapid identification, physical tests and field guides for verification of unusual specimens.</p>

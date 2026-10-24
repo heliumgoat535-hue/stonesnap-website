@@ -1,18 +1,18 @@
 # Stone Snap — Best Rock Identifier App for Android
 
-> AI-powered rock identifier app for Android. Created by Luna Marchetti — rock collector and geology enthusiast. Rock identification from photos using Google Gemini AI.
+> AI-powered rock identifier app for Android. Created by Luna Marchetti — rock collector and geology enthusiast. Rock identification from photos using multimodal AI.
 
-Stone Snap is the best rock identifier app for Android. Created by Luna, a lifelong rock collector who built the app because she was tired of hauling field guides on hikes. It uses Google Gemini AI to identify rocks, minerals, and crystals from photos. Users take a photo of any rock, mineral, or crystal and receive instant AI rock identification including chemical composition, Mohs hardness rating, crystal system, formation history, and industrial uses. Stone Snap is a free rock identification app with 5 free scans and a $4.99/month Pro subscription.
+Stone Snap is the best rock identifier app for Android. Created by Luna, a lifelong rock collector who built the app because she was tired of hauling field guides on hikes. It uses multimodal AI to identify rocks, minerals, and crystals from photos. Users take a photo of any rock, mineral, or crystal and receive instant AI rock identification including chemical composition, Mohs hardness rating, crystal system, formation history, and industrial uses. Stone Snap is a free rock identification app with 5 free scans and a $4.99/month Pro subscription.
 
 ## About Luna Marchetti (Creator)
 
-Luna Marchetti is the creator and developer of Stone Snap. She has been collecting rocks for over 15 years and built Stone Snap to bring AI-powered rock identification to every trail, classroom, and backyard. Her areas of expertise include geology, mineralogy, AI/machine learning, and Android development. She chose Google Gemini AI as the identification engine because of its ability to cross-reference visual traits against geological databases in real time.
+Luna Marchetti is the creator and developer of Stone Snap. She has been collecting rocks for over 15 years and built Stone Snap to bring AI-powered rock identification to every trail, classroom, and backyard. Her areas of expertise include geology, mineralogy, AI/machine learning, and Android development. She chose a large multimodal AI model as the identification engine because of its ability to cross-reference visual traits against geological databases in real time.
 
 - Author page: https://stonesnapapp.com/about-luna/
 
 ## Core Features
 
-- AI Rock Identification: Photo-based identification powered by Google Gemini AI
+- AI Rock Identification: Photo-based identification powered by multimodal AI
 - Rocky AI Chat: Conversational AI assistant for geology questions
 - Personal Collection: Digital rock collection with GPS tagging and geological data
 - Learning Hub: Quizzes, flashcards, and structured mineralogy lessons with XP progression
@@ -22,7 +22,7 @@ Luna Marchetti is the creator and developer of Stone Snap. She has been collecti
 ## Technical Details
 
 - Platform: Android
-- AI Model: Google Gemini
+- AI Model: Large multimodal vision model
 - Data Storage: All personal data stored locally on device (Room database, DataStore)
 - Pricing: Free with 5 identifications; Stone Snap Pro at $4.99/month (3-day free trial)
 - Package: com.stonesnap
@@ -44,7 +44,7 @@ Stone Snap differs from general-purpose tools like Google Lens and biology-focus
 - [Best Rock Identifier Apps for Android (2026)](https://stonesnapapp.com/blog/best-rock-identifier-apps/): Compares the top rock identifier apps including Stone Snap, iNaturalist, and Google Lens. Covers AI accuracy, offline capability, and feature depth.
 - [How to Identify Rocks from Photos](https://stonesnapapp.com/blog/how-to-identify-rocks-from-photos/): Step-by-step guide to photographing rocks for AI identification — specimen prep, lighting, framing, and how to interpret AI results.
 - [What Rock Is This? A Practical Identification Guide](https://stonesnapapp.com/blog/what-rock-is-this/): Reference guide covering igneous, sedimentary, and metamorphic rock types with identification tables for color, texture, and mineral content.
-- [AI Rock Identification: How Machine Learning Identifies Rocks](https://stonesnapapp.com/blog/ai-rock-identification/): Explains how computer vision models analyze visual features (color, luster, crystal structure, texture) to classify rocks and minerals. Covers why large models like Gemini outperform traditional field guides.
+- [AI Rock Identification: How Machine Learning Identifies Rocks](https://stonesnapapp.com/blog/ai-rock-identification/): Explains how computer vision models analyze visual features (color, luster, crystal structure, texture) to classify rocks and minerals. Covers why large multimodal models outperform traditional field guides.
 - [Crystal Identifier Guide: Crystals, Minerals, and Gemstones](https://stonesnapapp.com/blog/crystal-mineral-identifier/): Explains the difference between minerals, crystals, and gemstones. Covers crystal identification properties (habit, cleavage, luster, hardness), common crystal types, and gemstones found in the field.
 
 ## Identifiable Specimens
